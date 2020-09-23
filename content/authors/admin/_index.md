@@ -24,18 +24,30 @@ interests:
 
 education:
   courses:
- - course: Chartered Statistician
-   institution: Royal Statistics Society
-   year: 2019
- - course: PhD in Finance
-   institution: Queen's University Belfast
-   year: 2012
- - course: MSc in Financial Econometrics
-   institution: Royal Melbourne Institute of Technology
-   year: 2009
- - course: BSc in Accounting and Finance
-   institution: Queen's University Belfast
-   year: 1995
+  - course: PhD in Artificial Intelligence
+    institution: Stanford University
+    year: 2012
+  - course: MEng in Artificial Intelligence
+    institution: Massachusetts Institute of Technology
+    year: 2009
+  - course: BSc in Artificial Intelligence
+    institution: Massachusetts Institute of Technology
+    year: 2008
+
+# education:
+#  courses:
+# - course: Chartered Statistician
+#   institution: Royal Statistics Society
+#   year: 2019
+# - course: PhD in Finance
+#   institution: Queen's University Belfast
+#   year: 2012
+# - course: MSc in Financial Econometrics
+#   institution: Royal Melbourne Institute of Technology
+#   year: 2009
+# - course: BSc in Accounting and Finance
+#   institution: Queen's University Belfast
+#   year: 1995
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
