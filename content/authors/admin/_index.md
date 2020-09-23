@@ -23,13 +23,14 @@ interests:
 - Professional Football
 
 education:
+  courses:
  - course: Chartered Statistician
    institution: Royal Statistics Society
    year: 2019
  - course: PhD in Finance
    institution: Queen's University Belfast
    year: 2012
- - course: MSc in Finance
+ - course: MSc in Financial Econometrics
    institution: Royal Melbourne Institute of Technology
    year: 2009
  - course: BSc in Accounting and Finance
