@@ -22,7 +22,7 @@ interests:
 - Banking
 - Professional Football
 
-#education:
+education:
 courses:
  - course: Chartered Statistician
    institution: Royal Statistics Society
