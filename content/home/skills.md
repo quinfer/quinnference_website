@@ -24,10 +24,16 @@ subtitle = ""
   icon = "chart-line"
   icon_pack = "fas"
   name = "Statistics"
-  description = "100%"  
+  description = "100%" 
   
 [[feature]]
-  icon = "camera-retro"
+  icon = "python"
+  icon_pack = "fab"
+  name = "Statistics"
+  description = "90%" 
+  
+[[feature]]
+  icon = "music"
   icon_pack = "fas"
   name = "Bodhranisation"
   description = "100%"
