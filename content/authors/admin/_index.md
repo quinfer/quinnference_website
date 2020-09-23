@@ -23,7 +23,6 @@ interests:
 - Professional Football
 
 education:
-courses:
  - course: Chartered Statistician
    institution: Royal Statistics Society
    year: 2019
