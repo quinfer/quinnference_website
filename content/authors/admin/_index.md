@@ -26,16 +26,16 @@ interests:
 courses:
  - course: Chartered Statistician
    institution: Royal Statistics Society
-    year: 2019
-  - course: PhD in Finance
-    institution: Queen's University Belfast
-    year: 2012
-  - course: MSc in Finance
-    institution: Royal Melbourne Institute of Technology
-    year: 2009
-  - course: BSc in Accounting and Finance
-    institution: Queen's University Belfast
-    year: 1995
+   year: 2019
+ - course: PhD in Finance
+   institution: Queen's University Belfast
+   year: 2012
+ - course: MSc in Finance
+   institution: Royal Melbourne Institute of Technology
+   year: 2009
+ - course: BSc in Accounting and Finance
+   institution: Queen's University Belfast
+   year: 1995
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
