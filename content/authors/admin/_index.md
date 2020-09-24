@@ -18,7 +18,7 @@ bio: My research interests include financial regulation, cooperative banking, pr
 
 interests:
 - Statistical Learning in Finance
-- Financial econometrics
+- Bayesian Financial Econometrics
 - Banking
 - Professional Football
 
