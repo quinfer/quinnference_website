@@ -37,6 +37,7 @@ date_format = "Jan 2006"
   title = "Retraining to be an academic"
   date_start = "2006-01-01"
   date_end = "2010-07-01"
+  """
 
 [[experience]]
   title = "Senior Liquidity Managemet"
@@ -45,7 +46,8 @@ date_format = "Jan 2006"
   location = "London"
   date_start = "1998-01-01"
   date_end = "2004-01-01"
-  description = "Trading and managed Forex risk for fund management."""
+  description = "Trading and managed Forex risk for fund management."
+  """
   
 [[experience]]
   title = "Financial Consultant"
@@ -55,5 +57,6 @@ date_format = "Jan 2006"
   date_start = "1995-09-01"
   date_end = "1998-01-01"
   description = "Wealth management and consulting"
+  """
   
 +++
