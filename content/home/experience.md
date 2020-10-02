@@ -25,12 +25,6 @@ date_format = "Jan 2006"
   date_start = "2010-09-01"
   date_end = ""
   description = ""
-  Responsibilities include:
-  * Programme Director of MSc Quantitative Finance
-  * Faculty advisor to Student Managed Fund
-  * Research
-  * Teach
-  * Consult on statistical forecasting
   """
 
 [[experience]]
