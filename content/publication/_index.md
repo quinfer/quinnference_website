@@ -44,6 +44,7 @@ Barry Quinn, Gallagher, Ronan, and Timo Kuousmanen 2020  "Lurking in the Shadow:
 
 Barry Quinn, Casu, Barbara, Ayadi, Rym, Ben Nacuer, Sami, and Ronan Gallagher. 2020 "System risk implications of capital policy actions in European banking"
 
+Ronan Gallagher, Quinn, Barry 2020 "Sack the Gaffer: Implications of Managerial Turnover on Professional Football" 
 
 
 
