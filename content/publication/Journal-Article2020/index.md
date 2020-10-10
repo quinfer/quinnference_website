@@ -1,24 +1,22 @@
-
 ---
 title: "Cooperative financial institutions: A review of the literature"
 authors:
-- Donal McKillop
+- Donal McKillop 
 - Declan French
 - Barry Quinn
 - Anna L Sobiech
-- John O.S. Wilson
-
+- John OS Wilson
 author_notes:
-- ""
-- ""
-- ""
-- ""
-- ""
+- "Equal contribution"
+- "Equal contribution"
+- "Equal contribution"
+- "Equal contribution"
+- "Equal contribution"
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2020-10-01T00:00:00Z"
+publishDate: "2017-01-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -75,4 +73,8 @@ slides: ""
 
 {{% alert note %}}
 Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+{{% /alert %}}
+
+{{% alert note %}}
+Click the *Slides* button above to demo Academic's Markdown slides feature.
 {{% /alert %}}
