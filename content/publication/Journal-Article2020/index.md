@@ -7,12 +7,13 @@ authors:
 - Barry Quinn
 - Anna L Sobiech
 - John O.S. Wilson
-authors_notes:
- - ""
- - ""
- - ""
- - ""
- - ""
+
+author_notes:
+- ""
+- ""
+- ""
+- ""
+- ""
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
