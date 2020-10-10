@@ -12,7 +12,7 @@ doi: ""
 
 title: Regulatory Own Goals: The Unintended Consequences of Economic Regulation in Professional Football. date: 01/04/2019 publication_types: 2 publication: European Sport Management Quarterly abstract: "”
 publication_types: ["2"]
-publication: "*European Sports Management Quarterly, 1*(1)"
+publication: "*European Sports Management Quarterly, 20*(2)"
 publication_short: "ESMQ"
 
 abstract:  
@@ -28,25 +28,7 @@ The Financial Fair Play breakeven regulation reduces average club efficiency, ra
 Implications
 Breakeven regulations reduce the joint sporting and financial efficiency of regulated clubs, with the efficiency loss positively related to the severity of the breakeven constraint. The Financial Fair Play regulations further entrench the financial and sporting power of elite clubs and potentially undermine league competitive intensity by shifting the relative focus of clubs away from sporting productivity toward financial productivity.
 
-
-tags:
-- Source Themes
-featured: True
-
-#links:
-#- name: ""
-#url: ""
-#url_pdf: http://arxiv.org/pdf/1512.04133v1
-#url_code: ''
-#url_dataset: '
-#url_poster: ''
-#url_project: ''
-#url_slides: ''
-#url_source: ''
-#url_video: ''
-
-#Featured image
-#To use, add an image named `featured.jpg/png` to your page's folder. 
+---
 
 
 {{% alert note %}}
@@ -56,5 +38,3 @@ Click the *Cite* button above to demo the feature to enable visitors to import p
 {{% alert note %}}
 Click the *Slides* button above to demo Academic's Markdown slides feature.
 {{% /alert %}}
-
-Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
