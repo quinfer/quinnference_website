@@ -1,5 +1,5 @@
 ---
-title: "An example journal article"
+title: "Regulatory own goals: the unintended consequences of economic regulation in professional football"
 authors:
 - Ronan Gallagher 
 - Barry Quinn
