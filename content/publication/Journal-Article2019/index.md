@@ -1,12 +1,12 @@
 ---
 title: "An example journal article"
 authors:
-- admin
-- Robert Ford
+- Ronan Gallagher 
+- Barry Quinn
 author_notes:
 - "Equal contribution"
 - "Equal contribution"
-date: "2015-09-01T00:00:00Z"
+date: "2019-04-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
@@ -19,10 +19,24 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Journal of Source Themes, 1*(1)"
-publication_short: ""
+publication: "*European Sports Management Quarterly, 20*(1)"
+publication_short: "ESMQ"
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: Research question
+
+In 2010, the governing body of European football, UEFA, approved ‘Financial Fair Play’ regulations. Designed to encourage financial discipline, promote stability and foster competitive balance, they focus on a financial breakeven constraint. We analyse the impact of such constraints on the joint sporting and financial efficiency of English football clubs.
+
+Research methods
+
+The simultaneous production of both sporting and financial outputs are modelled using stochastic, non-parametric efficiency analysis. The sample is an unbalanced panel representing 60 clubs spanning the 2003/2004 to 2016/2017 seasons.
+
+Results and findings
+
+The Financial Fair Play breakeven regulation reduces average club efficiency, raises the relative importance of financial goals (capturing revenue share) whilst lowering the relative importance of sporting goals (capturing point share). The efficiency costs of regulation are not borne equally by clubs.
+
+Implications
+
+Breakeven regulations reduce the joint sporting and financial efficiency of regulated clubs, with the efficiency loss positively related to the severity of the breakeven constraint. The Financial Fair Play regulations further entrench the financial and sporting power of elite clubs and potentially undermine league competitive intensity by shifting the relative focus of clubs away from sporting productivity toward financial productivity.
 
 # Summary. An optional shortened abstract.
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
@@ -34,7 +48,7 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: http://arxiv.org/pdf/1512.04133v1
+url_pdf: https://doi.org/10.1080/16184742.2019.1588344
 url_code: ''
 url_dataset: ''
 url_poster: ''
@@ -55,7 +69,7 @@ image:
 #   Simply enter your project's folder or file name without extension.
 #   E.g. `internal-project` references `content/project/internal-project/index.md`.
 #   Otherwise, set `projects: []`.
-projects: []
+projects: [`football finance`]
 
 # Slides (optional).
 #   Associate this publication with Markdown slides.
