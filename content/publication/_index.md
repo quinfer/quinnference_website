@@ -13,6 +13,41 @@ header:
   caption: ""
   image: ""
 ---
+title: Cooperative Financial Institutions: A Review of the Literature.
+date: 01/06/2020
+publication_types: 2
+publication: International Review of Financial Analysis
+abstract: ""
+
+title: Regulatory Own Goals: The Unintended Consequences of Economic Regulation in Professional Football.
+date: 01/04/2019
+publication_types: 2
+publication: European Sport Management Quarterly
+abstract: ""
+
+title: Picking up the Pennies in Front of the Bulldozer: The Profitability of Gilt Based Trading Strategies.
+date: 01/12/2018
+publication_types: 2
+publication: Finance Research Letters
+abstract: ""
+
+title: Irish Credit Unions: Differential Regulation Based on Business Model Complexity
+date: 01/03/2017
+publication_types: 2
+publication: The British Accounting Review
+abstract: ""
+
+title: Does Basel Compliance Matter for Bank Performance?
+date: 01/03/2016
+publication_types: 2
+publication: Journal of Financial Stability
+abstract: ""
+
+title: Does Basel Compliance Matter for Bank Performance?
+date: 01/03/2016
+publication_types: 2
+publication: Journal of Financial Stability
+abstract: ""
 
 McKillop, Donal, Declan French, Barry Quinn, Anna L. Sobiech, and John O. S. Wilson. 2020. "Cooperative Financial Institutions: A Review of the Literature." International Review of Financial Analysis 71 (October): 101520.
 
