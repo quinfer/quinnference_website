@@ -7,6 +7,12 @@ authors:
 - Barry Quinn
 - Anna L Sobiech
 - John O.S. Wilson
+authors_notes:
+ - ""
+ - ""
+ - ""
+ - ""
+ - ""
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
@@ -23,7 +29,7 @@ publication_types: ["2"]
 publication: "*International Review of Financial Analysis, 71*(1)"
 publication_short: "IRFA"
 
-abstract:Financial cooperatives play an important role in the financial systems of many countries. They act as a safe haven for deposits and are major sources of credit for households and small- and medium-sized firms. A not-for-profit orientation (in many cases) and a focus on maximising benefits to members have ensured the enduring popularity and sustainability of financial cooperatives. This is particularly evident since the global financial crisis when financial cooperatives continued to extend credit to members as many profit-orientated commercial banks restricted credit to households and firms. The overarching theme of the first part of this review is the structural and behavioural characteristics of financial cooperatives. In this part we consider, the origin and diffusion of financial cooperatives, network arrangements, the business model, relationship banking, balancing the interest of members, tax treatment and regulatory framework. The second part has performance and contribution to the real economy as the overarching theme. In this part we consider, efficiency and sustainability, mergers, acquisitions and failures, the benefits (and challenges) of FinTech and the contribution of financial cooperatives to the real economy including during times of crisis. The paper concludes with a summary of what we now know (and do not know) about financial cooperatives and provides suggestions as to where future research may usefully concentrate.
+abstract: Financial cooperatives play an important role in the financial systems of many countries. They act as a safe haven for deposits and are major sources of credit for households and small- and medium-sized firms. A not-for-profit orientation (in many cases) and a focus on maximising benefits to members have ensured the enduring popularity and sustainability of financial cooperatives. This is particularly evident since the global financial crisis when financial cooperatives continued to extend credit to members as many profit-orientated commercial banks restricted credit to households and firms. The overarching theme of the first part of this review is the structural and behavioural characteristics of financial cooperatives. In this part we consider, the origin and diffusion of financial cooperatives, network arrangements, the business model, relationship banking, balancing the interest of members, tax treatment and regulatory framework. The second part has performance and contribution to the real economy as the overarching theme. In this part we consider, efficiency and sustainability, mergers, acquisitions and failures, the benefits (and challenges) of FinTech and the contribution of financial cooperatives to the real economy including during times of crisis. The paper concludes with a summary of what we now know (and do not know) about financial cooperatives and provides suggestions as to where future research may usefully concentrate.
 
 # Summary. An optional shortened abstract.
 summary:
