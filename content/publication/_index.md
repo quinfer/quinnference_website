@@ -13,11 +13,6 @@ header:
   caption: ""
   image: ""
 ---
-title: Cooperative Financial Institutions: A Review of the Literature.
-date: 01/06/2020
-publication_types: 2
-publication: International Review of Financial Analysis
-abstract: ""
 
 title: Regulatory Own Goals: The Unintended Consequences of Economic Regulation in Professional Football.
 date: 01/04/2019
