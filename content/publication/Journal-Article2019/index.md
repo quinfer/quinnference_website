@@ -22,21 +22,7 @@ publication_types: ["2"]
 publication: "*European Sports Management Quarterly, 20*(1)"
 publication_short: "ESMQ"
 
-abstract: Research question
-
-In 2010, the governing body of European football, UEFA, approved ‘Financial Fair Play’ regulations. Designed to encourage financial discipline, promote stability and foster competitive balance, they focus on a financial breakeven constraint. We analyse the impact of such constraints on the joint sporting and financial efficiency of English football clubs.
-
-Research methods
-
-The simultaneous production of both sporting and financial outputs are modelled using stochastic, non-parametric efficiency analysis. The sample is an unbalanced panel representing 60 clubs spanning the 2003/2004 to 2016/2017 seasons.
-
-Results and findings
-
-The Financial Fair Play breakeven regulation reduces average club efficiency, raises the relative importance of financial goals (capturing revenue share) whilst lowering the relative importance of sporting goals (capturing point share). The efficiency costs of regulation are not borne equally by clubs.
-
-Implications
-
-Breakeven regulations reduce the joint sporting and financial efficiency of regulated clubs, with the efficiency loss positively related to the severity of the breakeven constraint. The Financial Fair Play regulations further entrench the financial and sporting power of elite clubs and potentially undermine league competitive intensity by shifting the relative focus of clubs away from sporting productivity toward financial productivity.
+abstract: In 2010, the governing body of European football, UEFA, approved ‘Financial Fair Play’ regulations. Designed to encourage financial discipline, promote stability and foster competitive balance, they focus on a financial breakeven constraint. We analyse the impact of such constraints on the joint sporting and financial efficiency of English football clubs. The simultaneous production of both sporting and financial outputs are modelled using stochastic, non-parametric efficiency analysis. The sample is an unbalanced panel representing 60 clubs spanning the 2003/2004 to 2016/2017 seasons.  The Financial Fair Play breakeven regulation reduces average club efficiency, raises the relative importance of financial goals (capturing revenue share) whilst lowering the relative importance of sporting goals (capturing point share). The efficiency costs of regulation are not borne equally by clubs.  Breakeven regulations reduce the joint sporting and financial efficiency of regulated clubs, with the efficiency loss positively related to the severity of the breakeven constraint. The Financial Fair Play regulations further entrench the financial and sporting power of elite clubs and potentially undermine league competitive intensity by shifting the relative focus of clubs away from sporting productivity toward financial productivity.
 
 # Summary. An optional shortened abstract.
 summary: We show that economic regulation in English football imposes an "unfair" advantage to the sporting elite, potentially undermining competitiveness and sporting productivity.
@@ -76,7 +62,7 @@ projects: [`football finance`]
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides: "example"` references `content/slides/example/index.md`.
 #   Otherwise, set `slides: ""`.
-slides: example
+# slides: example
 ---
 
 {{% alert note %}}
