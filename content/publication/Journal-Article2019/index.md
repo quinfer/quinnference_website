@@ -39,7 +39,7 @@ Implications
 Breakeven regulations reduce the joint sporting and financial efficiency of regulated clubs, with the efficiency loss positively related to the severity of the breakeven constraint. The Financial Fair Play regulations further entrench the financial and sporting power of elite clubs and potentially undermine league competitive intensity by shifting the relative focus of clubs away from sporting productivity toward financial productivity.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: We show that economic regulation in English football imposes an "unfair" advantage to the sporting elite, potentially undermining competitiveness and sporting productivity.
 
 tags:
 - Source Themes
