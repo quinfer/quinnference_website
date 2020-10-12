@@ -10,7 +10,7 @@ author_notes:
 - "International Monetary Fund"
 - "Cass Business School"
 - "Queen's Management School"
-date: "2017-10-01T00:00:00Z"
+date: "2016-04-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
@@ -76,3 +76,6 @@ Click the *Cite* button above to demo the feature to enable visitors to import p
 {{% alert note %}}
 Click the *Slides* button above to demo Academic's Markdown slides feature.
 {{% /alert %}}
+
+
+Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
