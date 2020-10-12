@@ -70,3 +70,7 @@ Click the *Cite* button above to demo the feature to enable visitors to import p
 {{% /alert %}}
 
 
+{{% alert note %}} 
+Click the Slides button above to demo Academic's Markdown slides feature. 
+{{% /alert %}}
+
