@@ -21,10 +21,10 @@ publication_types: ["3"]
 publication: In *IMF Working Paper Series*
 publication_short: In *IMF_wp15100*
 
-abstract: 
+abstract: ""
 
 # Summary. An optional shortened abstract.
-summary: 
+summary: ""
 
 tags:
 - Source Themes
