@@ -29,7 +29,7 @@ publication_short: "JFS"
 abstract:The global financial crisis underscored the importance of regulation and supervision to a well-functioning banking system that efficiently channels financial resources into investment. In this paper, we contribute to the ongoing policy debate by assessing whether compliance with international regulatory standards and protocols enhances bank operating efficiency. We focus specifically on the adoption of international capital standards and the Basel Core Principles for Effective Bank Supervision (BCP). The relationship between bank efficiency and regulatory compliance is investigated using the Simar and Wilson (2007. J. Econ. 136 (1), 31) double bootstrapping approach on an international sample of publicly listed banks. Our results indicate that overall BCP compliance, or indeed compliance with any of its individual chapters, has no association with bank efficiency.
 
 # Summary. An optional shortened abstract.
-summary: 
+summary:"" 
 
 tags:
 - Source Themes
