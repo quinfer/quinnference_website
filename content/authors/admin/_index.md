@@ -79,4 +79,4 @@ social:
 #- Visitors
 ---
 
-Barry Quinn is a lecturer in Financail Econometrics in Queen's Management School, Belfast. His research interests include financial regulation, cooperative banking, professional football and computer age statistical inference. He founded and provides oversight for the Queen's Student Managed fund, is programme director of the MSc in Quantitative Finance, and teaches graduate-level time series financial econometrics and algorithmic trading and investment. He also have extensive statistical consulting and professional training experience. 
+Barry Quinn is a lecturer in Queen's Management School. His research interests include computer age statistical inference, banking, and professional football. He founded and provides oversight for the Queen's Student Managed fund. He is a programme director for the MSc in Quantitative Finance, and teaches graduate-level time series financial econometrics and algorithmic trading and investment. He also have extensive statistical consulting and professional training experience and has worked with local companies to build machine learning and AI forecasting capabilities. 
