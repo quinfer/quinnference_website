@@ -8,12 +8,18 @@ share: true
 profile: false
 comments: false
 ---
-#2019-2020 Annual Report
 
-Once again the students propelling the QSMF to new highlights with an excellent year of performance and learning
+
+The academic year 2019-2020 through up some unique challenges for our band of budding investment professional in the SMF.  Once again we were humbled by the work and innovations of this academic year, culminating in an excellent Annual report.  Below are some video highlights.
 
 <!-- blank line -->
 <figure class="video_container">
-  <iframe src="https://player.vimeo.com/video/466639381" frameborder="0" allowfullscreen="true"> </iframe>
+  <iframe 
+          width="300"
+          height="200"
+          src="https://player.vimeo.com/video/466639381" 
+          frameborder="0" 
+          allowfullscreen="true"> 
+  </iframe>
 </figure>
 <!-- blank line -->
