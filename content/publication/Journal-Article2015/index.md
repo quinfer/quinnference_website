@@ -21,7 +21,7 @@ publication_types: [2]
 
 # Publication name and optional abbreviated publication name.
 publication: "*Annals of Public and Cooperative Economics, 86*(3)"
-publication_short: APCE
+publication_short: "APCE"
 
 abstract: The purpose of this paper is to examine website adoption and its resultant effects on credit union performance in Ireland over the period 2002 to 2010. While there has been a steady increase in web adoption over the period a sizeable proportion (53\%) of credit unions did not have a web-based facility in 2010. To gauge web functionality the researchers accessed all websites in 2010\/2011 and it transpired that most sites were classified as informational with limited transactional options. Panel data techniques are then used to capture the dynamic nature of website diffusion and to investigate the effect of website adoption on cost and performance. The empirical analysis reveals that credit unions that have web-based functionality have a reduced spread between the loan and pay-out rate with this primarily caused by reduced loan rates. This reduced spread, although small, is found to both persist and increase over time.
 
