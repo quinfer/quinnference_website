@@ -10,7 +10,7 @@ comments: false
 ---
 
 
-The academic year 2019-2020 threw up some unique challenges for our band of budding investment professional in the SMF.  Once again we were humbled by the work, creativity and innovations of this academic year's cohort.  This culminated in an excellent Annual report.  While the learning and employment are the primary goals of the student managed fund. students active management has resulted in some excellent performance, beating their FTSE350 benchmark in some years.  
+The academic year 2019-2020 threw up some unique challenges for our band of budding investment professional in the SMF.  Once again we were humbled by the work, creativity and innovations of this academic year's cohort.  This culminated in an excellent Annual report.  While learning and employability are the primary goals of the SMF, student's are outperforming their FTSE350 benchmark in most years.  
 
 ![SMF performance compared to benchmark](/assets/images/annual_analytics.png "QSMF have outperformed the benchmark while managing risk")
 
