@@ -1,5 +1,5 @@
 ---
-title: "Lurking in the shadows: CO2 abatements costs of the Kyoto Protocols"
+title: "Lurking in the shadows: CO2 abatements costs of the Kyoto Protocol Agreement"
 authors:
 - Barry Quinn
 - Ronan Gallagher
