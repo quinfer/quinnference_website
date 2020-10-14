@@ -10,7 +10,7 @@ comments: false
 ---
 
 
-The academic year 2019-2020 through up some unique challenges for our band of budding investment professional in the SMF.  Once again we were humbled by the work and innovations of this academic year, culminating in an excellent Annual report.  Below are some video highlights.
+The academic year 2019-2020 threw up some unique challenges for our band of budding investment professional in the SMF.  Once again we were humbled by the work, creativity and innovations of this academic year's cohort.  This culminated in an excellent Annual report.  Below are some video highlights.
 
 <!-- blank line -->
 <figure class="video_container">
@@ -23,3 +23,5 @@ The academic year 2019-2020 through up some unique challenges for our band of bu
   </iframe>
 </figure>
 <!-- blank line -->
+
+
