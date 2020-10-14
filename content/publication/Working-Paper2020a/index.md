@@ -5,6 +5,9 @@ authors:
 - Ronan Gallagher
 - Timo Kousmanen
 author_notes:
+- "Queen's Management School"
+- "Edinburgh Business School"
+- "Aoalta Business School"
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
