@@ -12,7 +12,7 @@ comments: false
 
 The academic year 2019-2020 threw up some unique challenges for our band of budding investment professional in the SMF.  Once again we were humbled by the work, creativity and innovations of this academic year's cohort.  This culminated in an excellent Annual report.  While learning and employability are the primary goals of the SMF, student's are outperforming their FTSE350 benchmark in most years.  
 
-<img src="/assets/images/annual_analytics.png" alt="QSMF have outperformed the benchmark while managing risk" style="height: 100px; width:300px;"/>
+![QSMF vs FTSE350](/assets/images/annual_analytics.png "Students outperform benchmark").
 
 Below are some video highlights of this year's annual report.
 
