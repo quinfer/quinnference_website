@@ -6,7 +6,7 @@ The purpose of this course is not to introduce students to the vast array of mac
 	
 ## How to get a top grade
 | Grade Range | What you need to demonstrate | What moves you up within grade band|
-| :---:| :---:|:----------------:|
+| ------------| -----------------------------|------------------------------------|
 | 80-100 | Thorough and systematic knowledge and understanding of the module content. A clear grasp of the issues involved, with evidence of innovative and the original use of learning resources.  Knowledge beyond module content. Clear evidence of independent thought and originality. Methodological rigour. High critical judgement and a confident grasp of complex issues.|Originality of argument|
 |70-79| Methodological rigour.  Originality. Critical judgement. Evidence of use of additional learning resources.|Methodological rigour|
 |60-69|Very good knowledge and understanding of module content. Well argued answers. Evidence of originality and critical judgement.  Sound methodology. Critical judgement and some grasp of complex issues |Extent of use of additional or non-core learning resources|
