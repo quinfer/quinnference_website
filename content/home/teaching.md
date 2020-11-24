@@ -1,7 +1,7 @@
 ---
 widget: blank
 headless: true
-weight: 3
+weight: 100
 title: My Teaching
 subtitle: 
 design:
