@@ -1,10 +1,3 @@
----
-tags: [Teaching]
-title: Algorithmic trading and investment (FIN7030)
-created: '2020-11-11T14:47:51.321Z'
-modified: '2020-11-12T16:19:44.259Z'
----
-	
 # Algorithmic trading and investment (FIN7030)
 The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets use to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
 	
