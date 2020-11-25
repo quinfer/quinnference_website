@@ -1,10 +1,12 @@
 ---
-title: Algorithmic trading and investment (Msc Quantiative Finance)
+title: Algorithmic trading and investment (Msc Quantitative Finance)
 ---
 
 The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
 	
 ## How to get a top grade
+
+.container[
 | Grade Range | What you need to demonstrate | What moves you up within grade band|
 | ------------| -----------------------------|------------------------------------|
 | 80-100 | Thorough and systematic knowledge and understanding of the module content. A clear grasp of the issues involved, with evidence of innovative and the original use of learning resources.  Knowledge beyond module content. Clear evidence of independent thought and originality. Methodological rigour. High critical judgement and a confident grasp of complex issues.|Originality of argument|
@@ -13,7 +15,7 @@ The purpose of this course is not to introduce students to the vast array of mac
 |50-59| Good knowledge and understanding of the module content. Reasonably well argued.  Largely descriptive or narrative in focus. Methodological application is not consistent or thorough.|Understanding of the main issues|
 |40-49| Lacking methodological application. Adequately argued.  Basic understanding and knowledge. Gaps or inaccuracies but not damaging.|Relevance of knowledge displayed|
 |0-39| Little relevance material and/or inaccurate answer or incomplete. Disorganised and irrelevant material and misunderstanding.  Minimal or no relevant material.|Strength of argument|
-	
+]
 ## Learning Outcome
 	
  - Understanding of the application of algorithms and machine learning to finance.
@@ -120,5 +122,3 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 	Štrumbelj, Erik, and Igor Kononenko. 2014. "Explaining Prediction Models and Individual Predictions with Feature Contributions." Knowledge and Information Systems 41 (3): 647–65.
 	
 	Wasserstein, Ronald L., Allen L. Schirm, and Nicole A. Lazar. 2019. "Moving to a World Beyond ‘p < 0.05.’" The American Statistician 73 (sup1): 1–19.
-	
-{: .container}
