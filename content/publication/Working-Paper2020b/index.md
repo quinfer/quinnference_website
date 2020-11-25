@@ -1,9 +1,11 @@
 ---
-title: "Lurking in the shadows: CO2 abatements costs of the Kyoto Protocol Agreement"
+title: “Cooperative Financial Institutions: A Review of the Literature.”
 authors:
+- Donal McKillop
+- Delcan French
 - Barry Quinn
-- Ronan Gallagher
-- Timo Kousmanen
+- Anna L. Sobiech
+- John O. S. Wilson
 author_notes:
 - "Queen's Management School"
 - "Edinburgh Business School"
@@ -11,6 +13,7 @@ author_notes:
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
+ 71 (October): 101520.
 # Schedule page publish date (NOT publication's date).
 publishDate: "2017-01-01T00:00:00Z"
 
@@ -21,10 +24,10 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["3"]
 
 # Publication name and optional abbreviated publication name.
-publication: ""
-publication_short: ""
+publication: "International Review of Financial Analysis"
+publication_short: "IRFA"
 
-abstract: 
+abstract:Financial cooperatives play an important role in the financial systems of many countries. They act as a safe haven for deposits and are major sources of credit for households and small- and medium-sized firms. A not-for-profit orientation (in many cases) and a focus on maximising benefits to members have ensured the enduring popularity and sustainability of financial cooperatives. This is particularly evident since the global financial crisis when financial cooperatives continued to extend credit to members as many profit-orientated commercial banks restricted credit to households and firms. The overarching theme of the first part of this review is the structural and behavioural characteristics of financial cooperatives. In this part we consider, the origin and diffusion of financial cooperatives, network arrangements, the business model, relationship banking, balancing the interest of members, tax treatment and regulatory framework. The second part has performance and contribution to the real economy as the overarching theme. In this part we consider, efficiency and sustainability, mergers, acquisitions and failures, the benefits (and challenges) of FinTech and the contribution of financial cooperatives to the real economy including during times of crisis. The paper concludes with a summary of what we now know (and do not know) about financial cooperatives and provides suggestions as to where future research may usefully concentrate. 
 
 # Summary. An optional shortened abstract.
 summary:
