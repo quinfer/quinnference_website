@@ -121,3 +121,4 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 	
 	Wasserstein, Ronald L., Allen L. Schirm, and Nicole A. Lazar. 2019. "Moving to a World Beyond ‘p < 0.05.’" The American Statistician 73 (sup1): 1–19.
 	
+{: .container}
