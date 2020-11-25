@@ -6,7 +6,7 @@ The purpose of this course is not to introduce students to the vast array of mac
 	
 ## How to get a top grade
 
-.container[
+
 | Grade Range | What you need to demonstrate | What moves you up within grade band|
 | ------------| -----------------------------|------------------------------------|
 | 80-100 | Thorough and systematic knowledge and understanding of the module content. A clear grasp of the issues involved, with evidence of innovative and the original use of learning resources.  Knowledge beyond module content. Clear evidence of independent thought and originality. Methodological rigour. High critical judgement and a confident grasp of complex issues.|Originality of argument|
@@ -15,7 +15,7 @@ The purpose of this course is not to introduce students to the vast array of mac
 |50-59| Good knowledge and understanding of the module content. Reasonably well argued.  Largely descriptive or narrative in focus. Methodological application is not consistent or thorough.|Understanding of the main issues|
 |40-49| Lacking methodological application. Adequately argued.  Basic understanding and knowledge. Gaps or inaccuracies but not damaging.|Relevance of knowledge displayed|
 |0-39| Little relevance material and/or inaccurate answer or incomplete. Disorganised and irrelevant material and misunderstanding.  Minimal or no relevant material.|Strength of argument|
-]
+
 ## Learning Outcome
 	
  - Understanding of the application of algorithms and machine learning to finance.
