@@ -1,13 +1,13 @@
 ---
 title: "How deep is your learning. Transparency focused predictions of UK Firm Value"
 authors: 
-- Fearghal Kearney
-- Barry Quinn
-- Robert Sketch
+  - Fearghal Kearney
+  - Barry Quinn
+  - Robert Sketch
 author_notes:
-- "Queen's Management School"
-- "Queen's Management School"
-- "Aqua Q Analytics"
+  - "Queen's Management School"
+  - "Queen's Management School"
+  - "Aqua Q Analytics"
 date: "2020-10-01T00:00:00Z"
 doi: ""
 

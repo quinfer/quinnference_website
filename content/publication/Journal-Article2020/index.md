@@ -1,20 +1,18 @@
 ---
 title: “Cooperative Financial Institutions: A Review of the Literature.”
 authors:
-
-- Donal McKillop
-- Delcan French
-- Barry Quinn
-- Anna L. Sobiech
-- John O. S. Wilson
+  - Donal McKillop
+  - Delcan French
+  - Barry Quinn
+  - Anna L. Sobiech
+  - John O. S. Wilson
 
 author_notes:
-
-- "Queen's Management School"
-- "Queen's Management School"
-- "Queen's Management School"
-- "St Andrews Business School"
-- "St Andrews Business School"
+  - "Queen's Management School"
+  - "Queen's Management School"
+  - "Queen's Management School"
+  - "St Andrews Business School"
+  - "St Andrews Business School"
 
 date: "2020-10-01T00:00:00Z"
 doi: ""
