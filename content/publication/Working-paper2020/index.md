@@ -1,12 +1,14 @@
 ---
-title: "Irish Credit Unions: Differential Regulation Based on Business Model Complexity."
+title: "How deep is your learning. Transparency focused predictions of UK Firm Value"
 authors: 
-- Donal McKillop
+- Fearghal Kearney
 - Barry Quinn
+- Robert Sketch
 author_notes:
 - "Queen's Management School"
 - "Queen's Management School"
-date: "2017-10-01T00:00:00Z"
+- "Aqua Q Analytics"
+date: "2020-10-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
@@ -16,11 +18,11 @@ publishDate: "2017-01-01T00:00:00Z"
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["2"]
+publication_types: ["3"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*British Accounting Review, 49*(2):230-41"
-publication_short: "BAR"
+publication: ""
+publication_short: ""
 
 abstract:
 

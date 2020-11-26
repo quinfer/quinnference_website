@@ -8,8 +8,11 @@ authors:
 - John O. S. Wilson
 author_notes:
 - "Queen's Management School"
-- "Edinburgh Business School"
-- "Aoalta Business School"
+- "Queen's Management School"
+- "Queen's Management School"
+- "St Andrews Business School"
+- "St Andrews Business School"
+
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
