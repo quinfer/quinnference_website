@@ -4,7 +4,7 @@
 #
 # This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
 # Each configuration section is defined by a name in square brackets (e.g. `[search]`).
-i_am_a_sponsor = true
+
 ############################
 ## Theme
 ############################
@@ -27,6 +27,7 @@ font = ""
 # Choose a font size.
 # Sizes: XS (extra small), S (small), M (medium), L (large - DEFAULT), XL (extra large)
 font_size = "M"
+i_am_a_sponsor = true
 
 ############################
 ## Basic Info
