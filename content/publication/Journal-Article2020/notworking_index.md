@@ -6,9 +6,10 @@ authors:
 - Barry Quinn
 - Anna L Sobiech
 - John OS Wilson
-author_notes:"" 
-date:"2020-10-01T00:00:00Z"
-doi: " "
+  
+author_notes: " " 
+  date: "2020-10-01T00:00:00Z"
+  doi: " "
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2017-01-01T00:00:00Z"
