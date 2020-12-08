@@ -1,6 +1,5 @@
----
-title: Algorithmic trading and investment (Msc Quantitative Finance)
----
+
+# Algorithmic trading and investment (Taught on the Msc Quantitative Finance)
 
 The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
 	
