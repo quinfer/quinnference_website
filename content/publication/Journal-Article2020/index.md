@@ -1,5 +1,5 @@
 ---
-title: “Cooperative Financial Institutions: A Review of the Literature.”
+title: “Cooperative Financial Institutions A Review of the Literature.”
 authors:
 - Donal McKillop
 - Delcan French
