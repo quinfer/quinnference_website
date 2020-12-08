@@ -75,20 +75,8 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 	
 	Students should produce an RMarkdown report to produce a html or pdf essay.  Due end of week 5 submitted electronically via TurnitinUK.
 	
-	#### Empirical research project (70%)
-	- 70% Algorithmic machine learning empirical project (students should submit an Rmarkdown file which includes all their code, and output). Due at the start of the summer exam period.
-	- Student will put all they have learnt into practice but build a ML-based investment algorithms to be submitted to the [numerai](https://numer.ai) tournament.
-	- Deliverables= Report + Submit Forecasts to Numerai’s tournament
-	
-	#### Section of the report
-	
-	- Introduction : Contextualise the problem, describe your process, provide concluding thoughts.
-	- Feature engineering: assess and adjust for stationarity, low mutual information, and dimensionality reduction
-	- Feature selection
-	- Modelling
-	- Cross-validations
-	- Model limitations critique
-	- Concluding remarks
+	#### Computer-based practical test (70%)
+   - The assessment will be a mixed of computational, theoretical and inferential questions based on all the course material and readings.  The assessment will be an open-book test, run via the Rstudio Server used throughout the course. Students are monitored on the Server and individal users logs are collected and check for collusion.
 	
 	### Assessment protocols
 	In both cases it is important to learn how to read and critique academic papers.  This is a learning process which requires some practice.  This [link](https://medium.com/ai-saturdays/how-to-read-academic-papers-without-freaking-out-3f7ef43a070f) provide an excellent guide.
