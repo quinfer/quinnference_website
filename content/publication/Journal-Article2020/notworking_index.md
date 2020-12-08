@@ -1,15 +1,16 @@
 ---
-title: “Cooperative Financial Institutions A Review of the Literature.”
+title: "Cooperative financial institutions: A literature review"
 authors:
-- Donal McKillop
-- Delcan French
+- Donal McKillop 
 - Barry Quinn
-- Anna L Sobiech
-- John OS Wilson
-  
-author_notes: " " 
-  date: "2020-10-01T00:00:00Z"
-  doi: " "
+- Declan French
+- Anna Sobiech
+- John Wilson
+author_notes:
+- "Queen's Management School"
+- "St Andrew's Management School"
+date: "2020-04-01T00:00:00Z"
+doi: "16184742.2019.1588344"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2017-01-01T00:00:00Z"
@@ -18,16 +19,16 @@ publishDate: "2017-01-01T00:00:00Z"
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["3"]
+publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "International Review of Financial Analysis"
+publication: "*Interational Review of Financial Analysis"
 publication_short: "IRFA"
 
-abstract:Financial cooperatives play an important role in the financial systems of many countries. They act as a safe haven for deposits and are major sources of credit for households and small- and medium-sized firms. A not-for-profit orientation (in many cases) and a focus on maximising benefits to members have ensured the enduring popularity and sustainability of financial cooperatives. This is particularly evident since the global financial crisis when financial cooperatives continued to extend credit to members as many profit-orientated commercial banks restricted credit to households and firms. The overarching theme of the first part of this review is the structural and behavioural characteristics of financial cooperatives. In this part we consider, the origin and diffusion of financial cooperatives, network arrangements, the business model, relationship banking, balancing the interest of members, tax treatment and regulatory framework. The second part has performance and contribution to the real economy as the overarching theme. In this part we consider, efficiency and sustainability, mergers, acquisitions and failures, the benefits (and challenges) of FinTech and the contribution of financial cooperatives to the real economy including during times of crisis. The paper concludes with a summary of what we now know (and do not know) about financial cooperatives and provides suggestions as to where future research may usefully concentrate.
+abstract:
 
 # Summary. An optional shortened abstract.
-summary:
+summary: We show that economic regulation in English football imposes an "unfair" advantage to the sporting elite, potentially undermining competitiveness and sporting productivity.
 
 tags:
 - Source Themes
@@ -36,7 +37,7 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: 
+url_pdf: https://doi.org/10.1080/16184742.2019.1588344
 url_code: ''
 url_dataset: ''
 url_poster: ''
@@ -70,3 +71,9 @@ slides: ""
 {{% alert note %}}
 Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
 {{% /alert %}}
+
+{{% alert note %}}
+Click the *Slides* button above to demo Academic's Markdown slides feature.
+{{% /alert %}}
+
+Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
