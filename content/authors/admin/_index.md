@@ -14,13 +14,13 @@ organizations:
   url: "www.qub.ac.uk/mgt"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include financial regulation, cooperative banking, professional football, and statistical learning in finance.
+bio:" "
 
 interests:
-- Statistical Learning in Finance
+- Financial Machine Learning
 - Bayesian Financial Econometrics
-- Banking
-- Professional Football
+- Banking and Regulation
+- Football Finance
 
 education:
   courses:
