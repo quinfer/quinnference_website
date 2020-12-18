@@ -14,7 +14,7 @@ organizations:
   url: "www.qub.ac.uk/mgt"
 
 # Short bio (displayed in user profile at end of posts)
-bio:" "
+bio: "Barry"
 
 interests:
 - Financial Machine Learning
