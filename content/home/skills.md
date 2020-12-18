@@ -38,6 +38,13 @@ subtitle = ""
   name = "Bodhranisation"
   description = "Professional Expert"
 
+[[feature]]
+  icon = "compute"
+  icon_pack = "fas"
+  name = "Cloud Computing"
+  description = "Expert"
+
+
 # Uncomment to use emoji icons.
 # [[feature]]
 #  icon = ":smile:"
