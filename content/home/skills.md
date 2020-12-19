@@ -39,8 +39,8 @@ subtitle = ""
   description = "Professional Expert"
 
 [[feature]]
-  icon = "cloudversify"
-  icon_pack = "fas"
+  icon = "dataverse"
+  icon_pack = "ai"
   name = "Cloud Computing"
   description = "Expert"
 
