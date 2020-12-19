@@ -1,6 +1,8 @@
-# Algorithmic trading and investment (Taught on the Msc Quantitative Finance)
+---
+title: Algorithmic trading and investment
+---
 
-The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
+The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
 	
 ## How to get a top grade
 
@@ -109,3 +111,5 @@ Molnar, C. (2019): "Interpretable Machine Learning: A Guide for Making Black-Box
 Štrumbelj, Erik, and Igor Kononenko. 2014. "Explaining Prediction Models and Individual Predictions with Feature Contributions." Knowledge and Information Systems 41 (3): 647–65.
 	
 Wasserstein, Ronald L., Allen L. Schirm, and Nicole A. Lazar. 2019. "Moving to a World Beyond ‘p < 0.05.’" The American Statistician 73 (sup1): 1–19.
+
+Athey, S., & Imbens, G. W. (2019). Machine Learning Methods That Economists Should Know about. Annual Review of Economics, 11, 685–725. https://doi.org/10.1146/annurev-economics-080217-053433
