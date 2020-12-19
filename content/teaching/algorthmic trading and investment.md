@@ -2,10 +2,15 @@
 title: Algorithmic trading and investment
 ---
 
-The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
+## Overview
+The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. This module will introduce the modern practices in quantitative investing using algorithms and computer age statistical inference. The module is based on the emerging topic of [financial data science](https://jfds.pm-research.com/).
+
+As Efron and Hastie (2016) explains:
+>> Broadly speaking, algorithms are what statisticians do while inference says why they do them. A energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
+	
+While the era of "Big Data" has provide a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance random forest for prediction, inferential arguments for their support are emerging as an exciting new area.  This is true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is tpyically systemically supressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economic meaningful *signal* and answer contemporary financial research questions.
 	
 ## How to get a top grade
-
 
 | Grade Range | What you need to demonstrate | What moves you up within grade band|
 | ------------| -----------------------------|------------------------------------|
@@ -18,27 +23,19 @@ The purpose of this course is not to introduce students to the vast array of mac
 
 ## Learning Outcome
 	
- - Understanding of the application of algorithms and machine learning to finance.
-	- Introducing to using algorithms to research contemporary finance problems.
-	- Introducing to cloud computing for finance.
-	- Learn to combine R+python in an agile, durable and credible way.
-	- Using state-of-the-art cloud computing solutions (Rstudio Server Pro).
-	- Develop independent problem solving techniques.
-	- Learn the properties of algorithms through monte carlo simulations:
+- Understanding of the application of algorithms and machine learning to finance.
+- Introducing to using algorithms to research contemporary finance problems.
+- Introducing to cloud computing for finance.
+- Learn to combine R+python in an agile, durable and credible way.
+- Experience of state-of-the-art high performance cloud computing.
+- Develop independent problem solving techniques.
+- Learn the properties of algorithms through monte carlo simulations:
 	
  >> Fake it before you make it
 	
- - Introduction to the use of financial machine learning to *explain* modern phenomenon in finance. 
+- Introduction to the use of financial machine learning to *explain* modern phenomenon in finance. 
 - Understand how credible theory is needed to build successful algorithmic trading and investment strategies
-	- how can we use ML to build better financial theories?
-	
-	## Overview
-This module will introduce the modern practices in quantitative investing using algorithms and computer age statistical inference. The module is based on the emerging topic of [financial data science](https://jfds.pm-research.com/). 
-	As Efron and Hastie (2016) explains:
->> Broadly speaking, algorithms are what statisticians do while inference says why they do 
-them. A energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
-	
-While the era of "Big Data" has provide a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance random forest for prediction, inferential arguments for their support are emerging as an exciting new area.  This is true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is tpyically systemically supressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economic meaningful *signal* and answer contemporary financial research questions.
+- how can we use ML to build better financial theories?
 	
 # Course material
 	
@@ -46,6 +43,7 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 1. López de Prado, Marcos. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press. 
 2. ------. 2018. Advances in Financial Machine Learning. John Wiley & Sons.
 3. Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.
+4. Machine learning for finance: theory and practice
 	 
 ## Course plan
 	
