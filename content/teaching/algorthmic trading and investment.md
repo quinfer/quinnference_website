@@ -1,4 +1,3 @@
-
 # Algorithmic trading and investment (Taught on the Msc Quantitative Finance)
 
 The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. 
@@ -74,38 +73,39 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 	
 	Students should produce an RMarkdown report to produce a html or pdf essay.  Due end of week 5 submitted electronically via TurnitinUK.
 	
-	#### Computer-based practical test (70%)
+#### Computer-based practical test (70%)
    - The assessment will be a mixed of computational, theoretical and inferential questions based on all the course material and readings.  The assessment will be an open-book test, run via the Rstudio Server used throughout the course. Students are monitored on the Server and individal users logs are collected and check for collusion.
 	
-	### Assessment protocols
-	In both cases it is important to learn how to read and critique academic papers.  This is a learning process which requires some practice.  This [link](https://medium.com/ai-saturdays/how-to-read-academic-papers-without-freaking-out-3f7ef43a070f) provide an excellent guide.
-	
-	## References
-	Apley, Daniel W., and Jingyu Zhu. 2020. "Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models." Journal of the Royal Statistical Society. Series B, Statistical Methodology 82 (4): 1059–86.
+### Assessment protocols
 
-	Athey, Susan. 2017. "Beyond Prediction: Using Big Data for Policy Problems." Science 355 (6324): 483–85.
+In both cases it is important to learn how to read and critique academic papers.  This is a learning process which requires some practice.  This [link](https://medium.com/ai-saturdays/how-to-read-academic-papers-without-freaking-out-3f7ef43a070f) provide an excellent guide.
 	
-	Chen,  Andrew  Y.  (2019).   "The  Limits  of  p-Hacking:  a  Thought  Experiment,"  Finance and Economics Discussion Series 2019-016.  Washington:  Board of Governors of the Federal Reserve System, https://doi.org/10.17016/FEDS.2019.016.
+## References	
+
+Apley, Daniel W., and Jingyu Zhu. 2020. "Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models." Journal of the RoyalStatistical Society. Series B, Statistical Methodology 82 (4): 1059–86.
+
+Athey, Susan. 2017. "Beyond Prediction: Using Big Data for Policy Problems." Science 355 (6324): 483–85.
 	
-	Easley, David, Marcos López de Prado, Maureen O’Hara, and Zhibai Zhang. 2020. "Microstructure in the Machine Age." The Review of Financial Studies, July. https://doi.org/10.1093/rfs/hhaa078.
+Chen,  Andrew  Y.  (2019).   "The  Limits  of  p-Hacking:  a  Thought  Experiment,"  Finance and Economics Discussion Series 2019-016.  Washington:  Board of Governors of the Federal Reserve System, https://doi.org/10.17016/FEDS.2019.016.
 	
-	Easley, David, Marcos M. López de Prado, and Maureen O’Hara. 2012. "Flow Toxicity and Liquidity in a High-Frequency World." The Review of Financial Studies 25 (5): 1457–93.
+Easley, David, Marcos López de Prado, Maureen O’Hara, and Zhibai Zhang. 2020. "Microstructure in the Machine Age." The Review of Financial Studies, July. https://doi.org/10.1093/rfs/hhaa078.
+	
+Easley, David, Marcos M. López de Prado, and Maureen O’Hara. 2012. "Flow Toxicity and Liquidity in a High-Frequency World." The Review of Financial Studies 25 (5): 1457–93.
 		
-	Efron, B., and R. Tibshirani. 1991. "Statistical Data Analysis in the Computer Age." Science 253 (5018): 390–95.
+Efron, B., and R. Tibshirani. 1991. "Statistical Data Analysis in the Computer Age." Science 253 (5018): 390–95.
 	
-	Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.
+Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.
 	
-	Jacquier, Eric, and Nicholas Polson. 2011. "Bayesian Methods In Finance." In The Oxford Handbook of Bayesian Econometrics, edited by John Geweke, Gary Koop, and Herman Van Dijk. Oxford University Press.
+Jacquier, Eric, and Nicholas Polson. 2011. "Bayesian Methods In Finance." In The Oxford Handbook of Bayesian Econometrics, edited by John Geweke, Gary Koop, and Herman Van Dijk. Oxford University Press.
 	
-	López de Prado, Marcos. 2018. Advances in Financial Machine Learning. John Wiley & Sons.
+López de Prado, Marcos. 2018. Advances in Financial Machine Learning. John Wiley & Sons.
 	
-	------. 2019. "A Data Science Solution to the Multiple-Testing Crisis in Financial Research." The Journal of Financial Data Science, February. https://doi.org/10.3905/jfds.2019.1.099.
+------. 2019. "A Data Science Solution to the Multiple-Testing Crisis in Financial Research." The Journal of Financial Data Science, February. https://doi.org/10.3905/jfds.2019.1.099.
 	
-	------. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press.
+------. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press.
 	
-	Molnar, C. (2019): "Interpretable Machine Learning: A Guide for Making Black-Box Models Explainable." Available at https://christophm.github.io/interpretable-ml-book/
+Molnar, C. (2019): "Interpretable Machine Learning: A Guide for Making Black-Box Models Explainable." Available at https://christophm.github.io/interpretable-ml-book/
 	
+Štrumbelj, Erik, and Igor Kononenko. 2014. "Explaining Prediction Models and Individual Predictions with Feature Contributions." Knowledge and Information Systems 41 (3): 647–65.
 	
-	Štrumbelj, Erik, and Igor Kononenko. 2014. "Explaining Prediction Models and Individual Predictions with Feature Contributions." Knowledge and Information Systems 41 (3): 647–65.
-	
-	Wasserstein, Ronald L., Allen L. Schirm, and Nicole A. Lazar. 2019. "Moving to a World Beyond ‘p < 0.05.’" The American Statistician 73 (sup1): 1–19.
+Wasserstein, Ronald L., Allen L. Schirm, and Nicole A. Lazar. 2019. "Moving to a World Beyond ‘p < 0.05.’" The American Statistician 73 (sup1): 1–19.
