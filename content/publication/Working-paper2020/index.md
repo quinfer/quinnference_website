@@ -1,5 +1,5 @@
 ---
-title: "How deep is your learning? Machine learning stories from the *echanted predictability forest* of UK firm value"
+title: "How deep is your learning? Machine learning stories from the *enchanted predictability forest* of UK firm value"
 authors: 
   - Fearghal Kearney
   - Barry Quinn
