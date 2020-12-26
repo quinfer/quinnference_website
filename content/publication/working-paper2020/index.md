@@ -1,5 +1,5 @@
 ---
-title: "*Herding to comply*. Unintended systemic risk consequences of capital policy actions in European banks"
+title: "Herding to comply. Unintended systemic risk consequences of capital policy actions in European banks"
 authors: 
   - Barry Quinn
   - Barbara Casu
