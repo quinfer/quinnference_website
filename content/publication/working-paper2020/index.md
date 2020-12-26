@@ -11,7 +11,7 @@ author_notes:
   - "Cass Business School"
   - "Cass Business School"
   - "IMF"
-  - "Aqua Q Analytics"
+  - "Edinburgh Business School"
 date: "2020-10-01T00:00:00Z"
 doi: ""
 
@@ -28,7 +28,7 @@ publication_types: ["3"]
 publication: ""
 publication_short: ""
 
-abstract: In this paper, we contribute to the ongoing policy debate on re-regulation and resilience of financial institutions by analysing whether 
+abstract: "In this paper, we contribute to the ongoing policy debate on re-regulation and resilience of financial institutions by analysing whether 
 capital policy actions in Europe contribute to systemic risk. We use probabilistic modelling to both stabilise the inference from systemic risk estimation 
 and subsequent regression analysis. This framework allows us to disentangle the systemic risk consequence of an accumulation of capital policy actions 
 for each of 21 European countries. We focus specifically on three categories of policy action which are defined by the supervisor as either tightening, 
@@ -36,7 +36,7 @@ loosening or ambiguous in their intended action. Our results reveal that at the 
 consequence of increase system risk by between 1 and 10 quarterly percentage points. When evaluating the intra-national posterior probability 
 of the “random effects”, banks in Greece, Ireland and the United Kingdom seem to be driving this result. Our results suggest capital 
 adequacy regulation can have the unintended consequence of increasing systemic risk. This may be the result of several 
-systemically unimportant institutions become ‘systemic as a herd’ when investing in the same asset classes to comply with capital rules.
+systemically unimportant institutions become ‘systemic as a herd’ when investing in the same asset classes to comply with capital rules."
 
 # Summary. An optional shortened abstract.
 summary: 
