@@ -3,14 +3,10 @@ title: Algorithmic trading and investment
 ---
 
 ## Overview
-The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a relatively secondary goal. This module will introduce the modern practices in quantitative investing using algorithms and computer age statistical inference. The module is based on the emerging topic of [financial data science](https://jfds.pm-research.com/).
-
-As Efron and Hastie (2016) explains:
->> Broadly speaking, algorithms are what statisticians do while inference says why they do them. A energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
-	
-While the era of "Big Data" has provide a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance random forest for prediction, inferential arguments for their support are emerging as an exciting new area.  This is true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is tpyically systemically supressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economic meaningful *signal* and answer contemporary financial research questions.
+The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a secondary goal. 
 	
 ## How to get a top grade
+
 
 | Grade Range | What you need to demonstrate | What moves you up within grade band|
 | ------------| -----------------------------|------------------------------------|
@@ -23,19 +19,27 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 
 ## Learning Outcome
 	
-- Understanding of the application of algorithms and machine learning to finance.
-- Introducing to using algorithms to research contemporary finance problems.
-- Introducing to cloud computing for finance.
-- Learn to combine R+python in an agile, durable and credible way.
-- Experience of state-of-the-art high performance cloud computing.
-- Develop independent problem solving techniques.
-- Learn the properties of algorithms through monte carlo simulations:
+ - Understanding of the application of algorithms and machine learning to finance.
+	- Introducing to using algorithms to research contemporary finance problems.
+	- Introducing to cloud computing for finance.
+	- Learn to combine R+python in an agile, durable and credible way.
+	- Using state-of-the-art cloud computing solutions (Rstudio Server Pro).
+	- Develop independent problem solving techniques.
+	- Learn the properties of algorithms through monte carlo simulations:
 	
  >> Fake it before you make it
 	
-- Introduction to the use of financial machine learning to *explain* modern phenomenon in finance. 
+ - Introduction to the use of financial machine learning to *explain* modern phenomenon in finance. 
 - Understand how credible theory is needed to build successful algorithmic trading and investment strategies
-- how can we use ML to build better financial theories?
+	- how can we use ML to build better financial theories?
+	
+	## Overview
+This module will introduce the modern practices in quantitative investing using algorithms and computer age statistical inference. The module is based on the emerging topic of [financial data science](https://jfds.pm-research.com/). 
+	As Efron and Hastie (2016) explains:
+>> Broadly speaking, algorithms are what statisticians do while inference says why they do 
+them. A energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
+	
+While the era of "Big Data" has provide a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance random forest for prediction, inferential arguments for their support are emerging as an exciting new area.  This is true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is tpyically systemically supressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economic meaningful *signal* and answer contemporary financial research questions.
 	
 # Course material
 	
@@ -43,18 +47,19 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 1. López de Prado, Marcos. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press. 
 2. ------. 2018. Advances in Financial Machine Learning. John Wiley & Sons.
 3. Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.
-4. Machine learning for finance: theory and practice
+4. 	Dempster, M.A.H., Juho Kanniainen,John Keane,Erik Vynckier. 2018. High-Performance Computing in Finance: Problems, Methods, and Solutions. Cambridge University Press.
 	 
 ## Course plan
 	
 | Topic | Week | Learning outcome| Book chapters | Papers to read |
 | :---:| :---:|:----------------:|:-------------:|:--------------:|
 | Why study financial machine learning? | 1 | The current state-of-play in quant finance industry. The common fallacy around ML in finance. The ML alternatives to classical approach for scientific theory investigation| Book 1 Chapter 1| (Easley et al., 2020; Wasserstein et al., 2019; Chen, 2020)
-|Denoising and detoning | 2 | Covariance matrices in financial are ill-conditioned as a result of a small number of independent observation used to estimate a larger number of parameters. Using ML algorithms based on the [Marcenko-Pastur theorem]() to denoise and denote financial covariance samples.|Book 1 Chapter 2|  |
-|Distance metrics | 3| Financial correlation has critical limitations as a measure of codependence in financial research problems. The topic explores the use of [Shannon's entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)#:~:text=In%20information%20theory%2C%20the%20entropy,A%20Mathematical%20Theory%20of%20Communication%22.) theory using ML algorithms to capture important non-linear features of financial data.| Book 1 Chapter 3| |
-| Optimal clustering |4 | A common goal in financial research problems is to seperate output group entities by maximising *intragroup* similarities or minimising *intergroup* similarities. Using the idea of distance students will be introduced ML techniques to optimise the number and composition of clusters in financial problems. |Book 1 Chapter 4| |
-| Financial labels | 5| In supervised learning, financial researchers need to carefully ponder how they label their data, as labels determine the task that the algorithm is going to learn. All academic studies in finance use fixed-horizon labelling.  Return computed on fixed-time labels^[For example daily returns] exhibit substantial heteroskedasticity and dismiss all information in the intermediate returns. Students will be introduced to alternative labelling methods that overcome these limitations, including the triple-barrier, trend-scanning, and meta-labelling methods.  |Book 1 Chapter 5| |
-| Explainable machine learning |6 & 7| Traditional approach to financial research use classical econometric approach which combine various specification *guesses* about functional form and explanatory variables and hunts for statistical significance misusing p-values^[This problem is so widespread that the American Statistical Association has discourage their application as a measure of statistical significance (Wasserstein,2019)]. Students will be introduced to a number of *glassbox* ML supervised learning techniques to extract robust inference of financial phenomenon.  Topics will include, Mean-Decrease Accuracy, Shapley Values and Accumulated Local Effects | Book 1 Chapter 6| Apley et al., (2020), Strumbelj and Kononenko (2014), Molnar (2019)
+| High performance computing in finance|2| Financial problems are becoming increasingly computationally expensive.  Thus there has been a rapid expansion in HPC solutions in the finance industry.  This includes new numerical methods, HPC systems, cloud-based deployments, and new techologies such as Blockchain and distributed ledgers. This topic will be an overview of current landscape and a introduction to the Managment schools HPC cloud-computing infrastructure|Book 4||
+|Denoising and detoning | 3| Covariance matrices in financial are ill-conditioned as a result of a small number of independent observation used to estimate a larger number of parameters. Using ML algorithms based on the [Marcenko-Pastur theorem]() to denoise and denote financial covariance samples.|Book 1 Chapter 2|  |
+|Distance metrics | 4| Financial correlation has critical limitations as a measure of codependence in financial research problems. The topic explores the use of [Shannon's entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)#:~:text=In%20information%20theory%2C%20the%20entropy,A%20Mathematical%20Theory%20of%20Communication%22.) theory using ML algorithms to capture important non-linear features of financial data.| Book 1 Chapter 3| |
+| Optimal clustering |5 | A common goal in financial research problems is to seperate output group entities by maximising *intragroup* similarities or minimising *intergroup* similarities. Using the idea of distance students will be introduced ML techniques to optimise the number and composition of clusters in financial problems. |Book 1 Chapter 4| |
+| Financial labels | 6| In supervised learning, financial researchers need to carefully ponder how they label their data, as labels determine the task that the algorithm is going to learn. All academic studies in finance use fixed-horizon labelling.  Return computed on fixed-time labels^[For example daily returns] exhibit substantial heteroskedasticity and dismiss all information in the intermediate returns. Students will be introduced to alternative labelling methods that overcome these limitations, including the triple-barrier, trend-scanning, and meta-labelling methods.  |Book 1 Chapter 5| |
+| Explainable machine learning |7| Traditional approach to financial research use classical econometric approach which combine various specification *guesses* about functional form and explanatory variables and hunts for statistical significance misusing p-values^[This problem is so widespread that the American Statistical Association has discourage their application as a measure of statistical significance (Wasserstein,2019)]. Students will be introduced to a number of *glassbox* ML supervised learning techniques to extract robust inference of financial phenomenon.  Topics will include, Mean-Decrease Accuracy, Shapley Values and Accumulated Local Effects | Book 1 Chapter 6| Apley et al., (2020), Strumbelj and Kononenko (2014), Molnar (2019)
 |Testing set overfitting| 8 & 9| Understand the dangers of backtesting using historical data and some alternatives to control for the pitfalls. Backtesting using  combinatorically purged cross-validation (CPCV), synethetic data.  Learn about important backtesting statistics |Book 1 Chapter 8, Book 2 Chapters 12-15| Prado(2019)
 | Round up and numerai project |10| Review of course material and introduce to the numerai.com.  Outline of requirements for empirical research project | | |
 	
@@ -71,7 +76,7 @@ While the era of "Big Data" has provide a backdrop for the rapid expansion of im
 - Your conclusions : summarise and state your critical assessment of the statement using the scientific evidence that you have present in the previous sections.
 	
 	
-	Students should produce an RMarkdown report to produce a html or pdf essay.  Due end of week 5 submitted electronically via TurnitinUK.
+	Students should use an RMarkdown report to produce a html or pdf essay.  Due end of week 5 submitted electronically via TurnitinUK.
 	
 #### Computer-based practical test (70%)
    - The assessment will be a mixed of computational, theoretical and inferential questions based on all the course material and readings.  The assessment will be an open-book test, run via the Rstudio Server used throughout the course. Students are monitored on the Server and individal users logs are collected and check for collusion.
