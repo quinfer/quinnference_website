@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Barry Quinn PhD CStat
+title: Barry Quinn
 
 # Is this the primary user of the site?
 superuser: true
