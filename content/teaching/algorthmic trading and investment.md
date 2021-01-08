@@ -1,12 +1,20 @@
 ---
 title: Algorithmic trading and investment
 ---
+# Overview	
+The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in computer age statistical inference, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a secondary goal. 
 
-## Overview
-The purpose of this course is not to introduce students to the vast array of machine learning algorithms (Advanced Analytics and Machine Learning will begin to do this). The purpose is to introduce the emerging field of Financial Machine Learning (FML) as a complement to traditional financial research techniques. Context is king in modern statistical learning, and financial datasets used to solve modern investment problems offer distinct challenges, which makes choosing an generic algorithm a secondary goal. 
+This module will introduce the modern practices in quantitative investing using algorithms and computer age statistical inference. The module is based on the emerging topic of [financial data science](https://jfds.pm-research.com/). 
+	As Efron and Hastie (2016) explains:
+>> Broadly speaking, algorithms are what statisticians do while inference says why they do 
+them. A energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
 	
-## How to get a top grade
+While the era of "Big Data" has provide a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance random forest for prediction, inferential arguments for their support are emerging as an exciting new area.  This is true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is tpyically systemically supressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economic meaningful *signal* and answer contemporary financial research questions.
 
+	
+# How to get a top grade
+
+Below is the grading system using the this course, which is based on the standard postgraduate taught conceptual equivalent grading scheme of the School.  To get an above average mark student must show a maturity in their learning and understand beyond rote memorising.
 
 | Grade Range | What you need to demonstrate | What moves you up within grade band|
 | ------------| -----------------------------|------------------------------------|
@@ -17,7 +25,7 @@ The purpose of this course is not to introduce students to the vast array of mac
 |40-49| Lacking methodological application. Adequately argued.  Basic understanding and knowledge. Gaps or inaccuracies but not damaging.|Relevance of knowledge displayed|
 |0-39| Little relevance material and/or inaccurate answer or incomplete. Disorganised and irrelevant material and misunderstanding.  Minimal or no relevant material.|Strength of argument|
 
-## Learning Outcome
+# Learning Outcomes
 	
  - Understanding of the application of algorithms and machine learning to finance.
 	- Introducing to using algorithms to research contemporary finance problems.
@@ -32,24 +40,19 @@ The purpose of this course is not to introduce students to the vast array of mac
  - Introduction to the use of financial machine learning to *explain* modern phenomenon in finance. 
 - Understand how credible theory is needed to build successful algorithmic trading and investment strategies
 	- how can we use ML to build better financial theories?
-	
-	## Overview
-This module will introduce the modern practices in quantitative investing using algorithms and computer age statistical inference. The module is based on the emerging topic of [financial data science](https://jfds.pm-research.com/). 
-	As Efron and Hastie (2016) explains:
->> Broadly speaking, algorithms are what statisticians do while inference says why they do 
-them. A energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
-	
-While the era of "Big Data" has provide a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance random forest for prediction, inferential arguments for their support are emerging as an exciting new area.  This is true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is tpyically systemically supressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economic meaningful *signal* and answer contemporary financial research questions.
-	
-# Course material
-	
-## Reading
-1. López de Prado, Marcos. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press. 
+		
+# Self Study
+Much of the content for this course is self-contained within the lecture and online canvas notes. Where you find a gap in your background knowledge, you may also wish to consult one of the following texts and the relevant papers referenced in the course plan.
+
+## Core Reading
+1. López de Prado, Marcos. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press.
+### Advanced Reading
 2. ------. 2018. Advances in Financial Machine Learning. John Wiley & Sons.
 3. Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.
 4. 	Dempster, M.A.H., Juho Kanniainen,John Keane,Erik Vynckier. 2018. High-Performance Computing in Finance: Problems, Methods, and Solutions. Cambridge University Press.
+5. 	Dixon, Matthew F., Igor Halperin, and Paul Bilokon. 2020. Machine Learning in Finance: From Theory to Practice. Springer International Publishing.
 	 
-## Course plan
+# Course plan
 	
 | Topic | Week | Learning outcome| Book chapters | Papers to read |
 | :---:| :---:|:----------------:|:-------------:|:--------------:|
