@@ -1,6 +1,7 @@
-—-
-Algorithmic trading and investment
-—-
+---
+title:Algorithmic trading and investment
+subtitle: FIN7030
+---
 
 # Overview	
 This module will introduce the modern practices in finance of using algorithms to extract computer age statistical inference. The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/).  as a complement to traditional financial research techniques. 
