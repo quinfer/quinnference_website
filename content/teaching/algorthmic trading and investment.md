@@ -1,16 +1,21 @@
 ---
-title: Algorithmic trading and investment
+Algorithmic trading and investment
 ---
-# Overview	
-This module will introduce the modern practices in finance of using algorithms to extract computer age statistical inference. The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/).  as a complement to traditional financial research techniques. *Context is king* in computer age statistical inference, and financial datasets used to solve modern investment problems offer unique challenges, which render standard ML algorithms ineffective. 
 
-As Efron and Hastie (2016) explain:
+# Overview	
+This module will introduce the modern practices in finance of using algorithms to extract computer age statistical inference. The purpose of this course is not to introduce students to the vast array of machine learning algorithms. The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/).  as a complement to traditional financial research techniques. 
+
+This course presents machine learning as a non-linear extension of various topics in quantitative economics such as financial econometrics and dynamic programming, with an emphasis on novel algorithmic representations of data, regularization, and techniques for controlling the bias-variance tradeoff leading to improved out-of-sample forecasting.  
+
+*Context is king* in computer age statistical inference, and financial datasets used to solve modern investment problems offer unique challenges which are beyond many *plug and play* data science algorithms. 
+
+Efron and Hastie (2016) explain the challenges of computer age statistical inference as follows:
 >> Broadly speaking, algorithms are what statisticians do while inference says why they do them. An energetic brand of the statistical enterprise has ﬂourished in the new century, data science, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
 	
 The era of "Big Data" has provided a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance, random forest for prediction. The importance of inferential arguments in support of the ML applications has emerged as an exciting (yet underdeveloped) field.  This is particularly true for financial research questions where the complexity of the **data story**^[Or more formally the data generating process which underpins the sample] result in notoriously noise covariance matrices.  A  small percentage of information these matrices contain is *signal*, which is systemically suppressed by arbitrage forces. This course will introduce best practice techniques in financial data science which can help illicit economically meaningful *signal* and answer contemporary financial research questions.
-
 	
 # How to get a top grade
+
 Below is the grading system using this course, which is based on the standard postgraduate taught conceptual equivalent grading scheme of the School.  To get an above-average mark students must show a maturity in their learning and understand far beyond rote memorising.
 
 | Grade Range | What you need to demonstrate | What moves you up within-grade band|
@@ -23,6 +28,7 @@ Below is the grading system using this course, which is based on the standard po
 |0-39| Little relevance material and/or inaccurate answer or incomplete. Disorganised and irrelevant material and misunderstanding.  Minimal or no relevant material.|Strength of argument|
 
 # Learning Outcomes
+	
  - Understanding of the application of algorithms and machine learning to finance.
 	- Introducing to using algorithms to research contemporary finance problems.
 	- Introducing to cloud computing for finance.
@@ -42,7 +48,6 @@ Much of the content for this course is self-contained within the lecture and onl
 
 ## Core Reading
 1. López de Prado, Marcos. 2020. "Machine Learning for Asset Managers." In Elements in Quantitative Finance. Cambridge University Press.
-
 ### Advanced Reading
 2. ------. 2018. Advances in Financial Machine Learning. John Wiley & Sons.
 3. Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.
@@ -69,20 +74,21 @@ Much of the content for this course is self-contained within the lecture and onl
 	>Financial machine learning are black-box prediction engines and offer little benefit to researching phenomenon in finance beyond traditional econometric techniques
 	
 ### Section in the essay
+	
 - Introduction: Set the statement in the context of modern financial research practices
 - Critical literature: Use high-quality research to illustrate the pros and cons of the statement.
 - Experimental evidence^[optional section]: You are free to use experimental evidence using simulated data and code.
 - Your conclusions: summarise and state your critical assessment of the statement using the scientific evidence that you have present in the previous sections.
-
-Students should use an RMarkdown report to produce an HTML or pdf essay.  Due end of week 5 submitted electronically via TurnitinUK.
+Students should use an RMarkdown report to produce an HTML or pdf essay.  Due end of week 5 submitted electronically via TurnitinUK. **The lecturer revise the right to orally exam students after each assessment if he suspects *foul-play*.**
 	
 ## Computer-based practical test (70%)
-The assessment will be a mixture of computational, theoretical and inferential questions based on all the course material and readings.  The assessment will be an open-book test, run on the Schools high-performance cloud computing server. Students are monitored on the Server and individual users logs are collected and checked to ensure fairness.
+The assessment will be a mixture of computational, theoretical and inferential questions based on all the course material and readings.  The assessment will be an open-book test, run on the Schools high-performance cloud computing server. Exams will be proctored using Rstudio Server user logs to ensure fairness. **The lecturer revise the right to orally exam students after each assessment if he suspects *foul-play*.**
 	
 ## Assessment protocols and learning tips
-In both cases, it is important to learn how to read and critique academic papers.  This is a learning process which requires practice.  This [link](https://medium.com/ai-saturdays/how-to-read-academic-papers-without-freaking-out-3f7ef43a070f) provide an excellent guide.  **The lecturer revise the right to orally exam students after each assessment if he suspects *foul-play*.**
+
+In both cases, it is important to learn how to read and critique academic papers.  This is a learning process which requires practice.  This [link](https://medium.com/ai-saturdays/how-to-read-academic-papers-without-freaking-out-3f7ef43a070f) provide an excellent guide. 
 	
-# Further Reading
+## References	
 
 Apley, Daniel W., and Jingyu Zhu. 2020. "Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models." Journal of the RoyalStatistical Society. Series B, Statistical Methodology 82 (4): 1059–86.
 
