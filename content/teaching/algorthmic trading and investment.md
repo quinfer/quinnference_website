@@ -1,5 +1,5 @@
 ---
-title:Algorithmic trading and investment
+title: Algorithmic trading and investment
 subtitle: FIN7030
 ---
 
