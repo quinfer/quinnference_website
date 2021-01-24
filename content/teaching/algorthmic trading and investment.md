@@ -17,7 +17,7 @@ The era of "Big Data" has provided a backdrop for the rapid expansion of immense
 	
 # How to get a top grade
 
-I am passionate about student development through mearning by growth rather than memory. This is especially important in maths, where modern nueroscience tells us that **everyone** has an innate ability to do well in math.  In the below video, Professor Jo Boaler explains how to succeed in learning through growth.
+I am passionate about student development. I use the latest knowledge transfer science to activate permanent changes in students' understanding.  I achieve this through learning by growth rather than memory. This is especially important in maths, where modern nueroscience tells us that **everyone** has an innate ability to do well in math.  In the below video, Professor Jo Boaler explains how to succeed in learning through growth.
 
 <iframe title="vimeo-player" src="https://player.vimeo.com/video/126645788" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
