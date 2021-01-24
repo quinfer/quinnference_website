@@ -3,11 +3,8 @@ title: Statistics for financial times series
 subtitle: FIN7028
 ---
 
-
-# Prerequisite
-Research Methods in Finance (FIN7008)
 # Overview
-Statistics is the science of uncertainty and variation. This course is about the statistics of time series used economic and finance problems.  The aim of this course is to teach students to apply times series financial econometrics techniques sensibly in the context of real-world empirical problems. Use  statistical programming software and RStudio, students will be taught statistical techniques which underpin quantitative investigation in the finance. 
+Statistics is the science of uncertainty and variation. This course is about the statistics of time series used economic and finance problems.  The aim of this course is to teach students to apply times series financial econometrics techniques sensibly in the context of real-world empirical problems. Using R and Rstudio Studio Server Pro, students will be taught statistical techniques which underpin quantitative investigation in the finance. 
 
 # Learning outcomes
 1.	Begin to understand econometrics as a science of uncertainty and variation.
