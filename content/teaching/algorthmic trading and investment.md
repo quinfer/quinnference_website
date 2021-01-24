@@ -17,6 +17,10 @@ The era of "Big Data" has provided a backdrop for the rapid expansion of immense
 	
 # How to get a top grade
 
+I am passionate about student development through mearning by growth rather than memory. This is especially important in maths, where modern nueroscience tells us that **everyone** has an innate ability to do well in math.  In the below video, Professor Jo Boaler explains how to succeed in learning through growth.
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/126645788" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+
 Below is the grading system using this course, which is based on the standard postgraduate taught conceptual equivalent grading scheme of the School.  To get an above-average mark students must show a maturity in their learning and understand far beyond rote memorising.
 
 | Grade Range | What you need to demonstrate | What moves you up within-grade band|
