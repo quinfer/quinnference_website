@@ -114,7 +114,9 @@ Barry Quinn in Home Attic Office
 class:middle
 # Course objective
 
-![](img/dixonMLiF.jpeg)
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
+This course attempts machine learning as a non-linear extension of various topics in quantitative economics such as financial econometrics and dynamic programming, with an emphasis on novel algorithmic representations of data, regularization, and techniques for controlling the bias-variance tradeoff leading to improved out-of-sample forecasting.
+&lt;footer&gt;Dixon et al., 2020 *Machine Learning in Finance*&lt;/footer&gt;]
 
 - Introduce the modern practices in finance of using algorithms to extract computer age statistical inference. 
 
@@ -122,10 +124,6 @@ class:middle
 
 - The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/) as a as a complementary enhancement to traditional financial research techniques. 
 
-.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
-This course attempts machine learning as a non-linear extension of various topics in quantitative economics such as financial econometrics and dynamic programming, with an emphasis on novel algorithmic representations of data, regularization, and techniques for controlling the bias-variance tradeoff leading to improved out-of-sample forecasting.
-&lt;footer&gt;Dixon et al., 2020 *Machine Learning in Finance*&lt;/footer&gt;
-]
 
 ---
 class:inverse
@@ -155,7 +153,6 @@ class:inverse
 
 - This course will introduce best practice techniques in financial data science which can help illicit economically meaningful *signal* and answer contemporary financial research questions.
 ---
-
 class:middle
 ### What to expect from me
 - I am passionate about students learning through growth mindsets
@@ -175,10 +172,7 @@ class:inverse
 - Be prepared to struggle in the learning pit but see success at the end
 - Ask for help only after trying and coming up short
 ]
-.pull.right[&lt;img src="img/learningpit.png" width="50%"&gt;]
----
-class:middle
-
+.pull-right[&lt;img src="img/learningpit.png" width="50%"&gt;]
 ---
 class:middle
 # Asessment
@@ -529,8 +523,8 @@ class: right, center
 ]
 .right-column[
 
-<div id="htmlwidget-c84fbef8e2bab235c6ea" style="width:100%;height:100%;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c84fbef8e2bab235c6ea">{"x":{"diagram":"digraph boxes_and_circles {\n graph [layout=dot]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dbe6633f78d53dfff5ad" style="width:100%;height:100%;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dbe6633f78d53dfff5ad">{"x":{"diagram":"digraph boxes_and_circles {\n graph [layout=dot]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
