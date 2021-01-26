@@ -4,7 +4,7 @@
     <title>Algorithmic trading and investment</title>
     <meta charset="utf-8" />
     <meta name="author" content="Barry Quinn" />
-    <meta name="date" content="2021-01-25" />
+    <meta name="date" content="2021-01-26" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -38,7 +38,7 @@ background-size: cover
 
 # .fancy[Lecture 2: Why study financial machine learning?]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-25]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-26]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 <div>
@@ -82,10 +82,10 @@ class:inverse
 # Outline
 - .salt[Course introduction]
 - .heat[Industry motives for studying FML]
-- .salt[Statistical Modelling]
+- .salt[Statistical modelling]
+- .large[Breathing excercises to aid .fancy[learning by growing]]
 - .heat[Machine learning and financial econometrics]
-- .salt[Advantages and challenges in using ML]
-- .large.fancy[Breathing breaks to aid learning]
+- .salt[Advantages and challenges in using FML]
 
 ---
 class:middle
@@ -102,19 +102,22 @@ Barry Quinn in Home Attic Office
 
 [&lt;img src='img/paper-plane.png' width="25px"\&gt; b.quinn@qub.ac.uk](mailto:b.quinn@qub.ac.uk)
 
+.fat[Please read my communication policy to get feedback]
 ---
 class:middle
 # Course objective
+
+![](img/dixonMLiF.jpeg)
 
 - Introduce the modern practices in finance of using algorithms to extract computer age statistical inference. 
 
 - The purpose of this course is not to introduce students to the vast array of machine learning algorithms. 
 
-- The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/).  as a complement to traditional financial research techniques. 
+- The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/) as a as a complementary enhancement to traditional financial research techniques. 
 
 .bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
-This course presents machine learning as a non-linear extension of various topics in quantitative economics such as financial econometrics and dynamic programming, with an emphasis on novel algorithmic representations of data, regularization, and techniques for controlling the bias-variance tradeoff leading to improved out-of-sample forecasting.
-&lt;footer&gt;Dixon et al., 2020&lt;/footer&gt;
+This course attempts machine learning as a non-linear extension of various topics in quantitative economics such as financial econometrics and dynamic programming, with an emphasis on novel algorithmic representations of data, regularization, and techniques for controlling the bias-variance tradeoff leading to improved out-of-sample forecasting.
+&lt;footer&gt;Dixon et al., 2020 *Machine Learning in Finance*&lt;/footer&gt;
 ]
 
 ---
@@ -125,34 +128,49 @@ class:inverse
 
 - Financial datasets used to solve modern investment problems offer unique challenges which are beyond many *plug and play* data science algorithms. 
 
+--
+
 - The era of "Big Data" has provided a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance, random forest for prediction. 
+
+--
 
 - The importance of inferential arguments in support of the ML applications has emerged as an exciting (yet underdeveloped) field.  
 
+--
+
 - This is particularly true for financial research questions where the complexity of the **data story** (or more formally the data generating process which underpins the sample) result in notoriously noise covariance matrices.  
+
+--
 
 - A small percentage of information these matrices contain is *signal*, which is systemically suppressed by arbitrage forces. 
 
+--
+
 - This course will introduce best practice techniques in financial data science which can help illicit economically meaningful *signal* and answer contemporary financial research questions.
 ---
+
 class:middle
-# Expectations
-.pull-left[
 ### What to expect from me
 - I am passionate about students learning through growth mindsets
+
+&lt;iframe title="vimeo-player" src="https://player.vimeo.com/video/126645788" width="640" height="360" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
 - Neuroscience tells us that permanent changes in our brain require a journey which can take you through the learning pit
-![](img/learningpit.jpeg)
-- I will provide you with the tools to navigate your way through this learning journey.
+- I will provide you with the tools to navigate your way through this learning journey
 - Give you feedback because I believe in you
-]
+---
+class:inverse
+# What I expect of you
 .pull-left[
-### What I expect of you
-- Be curious and challenge yourself
+- Be passionately curious and challenge yourself
 - Communicate in a polite and professional manner
 - Be prepared and motivated to self study
+- Be prepared to struggle in the learning pit but see success at the end
 - Ask for help only after trying and coming up short
 ]
-
+.pull.right[&lt;img src="img/learningpit.png" width="50%"&gt;]
+---
+class:middle
 
 ---
 class:middle
@@ -206,7 +224,7 @@ class: middle
 ---
 class: middle, inverse
 # Why study FML?
-- .large[Classical econometrics fails on these datasets]
+- .large[Classical econometrics fails on these *Big* datasets]
 
 - .large[Linear algebra methods (eg.OLS) can fail in high dimensional data where there can be more variables than observations.]
 
@@ -214,14 +232,9 @@ class: middle, inverse
 
 - .large[FML offer numerical power and functional flexibility needed to identify complex patterns in high-dimensional space.]
 ---
-class: left
-
-.left-column[
-&lt;img src="img/Turtles_all_the_Way_Down.jpeg"&gt;
-]
-
-.right-column[
+class:inverse,middle
 ### Interaction effects all the way down
+.large[
 - High-dimensional datasets with many features (predictors) may have complex patterns.
 - For `\(p\)` features there may be up to `\(2^p-p-1\)` interaction effects.
 - Unlike ML algorithms, econometric models do not *learn* the structure of the data.
@@ -348,7 +361,7 @@ class: middle
 ---
 class:inverse
 # A deep learning explainer
-
+&lt;iframe src="https://player.vimeo.com/video/504543351" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ---
 class: middle,center
@@ -509,8 +522,8 @@ class: right, center
 ]
 .right-column[
 
-<div id="htmlwidget-0af2c09c168b1c5d8879" style="width:100%;height:100%;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0af2c09c168b1c5d8879">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b4d2c0e3afffca11f05f" style="width:100%;height:100%;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b4d2c0e3afffca11f05f">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
