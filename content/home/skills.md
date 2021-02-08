@@ -43,6 +43,12 @@ subtitle = ""
   icon_pack = "ai"
   name = "Cloud Computing"
   description = "Expert"
+  
+[[feature]]
+  icon = "html5"
+  icon_pack = "fas"
+  name = "html"
+  description = "Expert"
 
 
 # Uncomment to use emoji icons.
