@@ -1,5 +1,5 @@
 ---
-title: "Does Basel Compliance Matter for Bank Performance?"
+title: "A study of international compliance and bank performance"
 authors: 
 - Rym Ayadi
 - Sami Ben Naceur
