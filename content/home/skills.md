@@ -45,9 +45,9 @@ subtitle = ""
   description = "Expert"
   
 [[feature]]
-  icon = "html5"
+  icon = "linux"
   icon_pack = "fas"
-  name = "html"
+  name = "Linux"
   description = "Expert"
 
 
