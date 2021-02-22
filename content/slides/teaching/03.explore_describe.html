@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Time series financial econometrics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Barry Quinn" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.4/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.4/panelset.js"></script>
+    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+    <script src="libs/jquery-3.5.1/jquery.min.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.17/datatables.js"></script>
+    <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+    <script src="libs/xaringanExtra-webcam-0.0.1/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/qub.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Time series financial econometrics
+## Exploring data and models
+### Barry Quinn
+### 20/12/2019 (updated 2021-02-21)
+
+---
+
+
+
+
+class:segue
+## Outline
+.large[
+* Time series in &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt;
+- Simulation: *Fake it before you make it!*
+- Gaussian distributions, what's all the fuss?
+- financial log returns
+- Visualising time series patterns
+- Deafeningly noisy data
+]
+---
+class:middle
+## Rethinking visualisation
+
+  - Charts are not meant to be *seen*, they are intended to be *read*
+  - They are not just images but **visual arguments**.
+  - Data doesn't *speak for itself*.
+  - Data visualisations need to be **shown** and **explained**
+
+---
+class:middle
+## `ts` objects and `ts` function
+
+A time series is stored in a `ts` object in R:
+ - a list of numbers
+ - information about times those numbers were recorded.
+
+### Some fake daily returns
+
+<div id="htmlwidget-a78c135ebe4a02b51eaa" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a78c135ebe4a02b51eaa">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252],[-0.0021,0.0128,0.0208,-0.0135,0.0143,0.0151,0.0043,0.0045,0.0044,0.0011,0.0052,0,0.0022,0.0106,0.0196,0.0089,0.0049,0.0009,0.0016,0.0342,0.0113,0.0051,0.0056,0.0146,0.0031,-0.0045,0.0157,-0.0002,0.0098,0.0006,0.021,0.0052,0.0029,0.005,-0.0063,-0.0017,-0.0118,-0.0034,0.0071,0.0053,0.0245,-0.0007,0.0014,0.0072,0.0001,0.0003,-0.0011,-0.0025,0.0048,0.005,-0.0081,0.0042,-0.0011,-0.0001,0.0084,0.0156,0.0265,0.0023,0.0261,-0.0016,0.0166,0.0355,0.0097,0.0033,0.0099,0.0278,-0.0014,0.0237,0.0233,0.0134,0.0101,0.0054,0.0063,0.0165,0.0307,0.0085,-0.0039,0.0028,0.0126,0.0068,0.0082,0.0083,-0.0037,0.0083,0.0185,0.017,0.0155,0.006,0.0081,-0.0019,0.0095,0.0126,0.0271,0.02,0.005,0.0136,-0.0013,0.0188,0.0197,0.0312,0.0141,0.0053,0.0107,0.005,0.0017,0.0117,0.001,0.0117,0.0135,0.0095,0.008,0.0035,-0.0011,0.0185,0.0102,0.0183,-0.0024,0.0117,0.0167,0.0097,0.0081,0.0022,0.0306,0.0175,0.0282,0.0108,0.0037,-0.0051,0.0036,0.0123,0.0201,0.0125,-0.0017,0.0167,-0.0065,0.0063,0.0068,-0.0095,0.0192,0.0038,0.0067,0.024,0.0164,0.0089,0.0151,0.014,0.0266,0.0128,0.0151,0.0135,0.0062,0.011,0.0264,0.0012,0.0112,0.0236,0.0077,-0.0005,0.0013,0.0061,0.0015,0.0074,0.0059,0.0082,0.0141,0.0162,0.0268,0.0093,0.0068,0.0247,0.027,0.0104,0.0067,-0.0082,0.0241,0.0016,-0.0012,0.0404,0.0124,0.0097,-0.0173,0.009,0.0198,0.0141,0.0191,0.0298,0.0217,0.0049,0.017,0.008,0.0046,-0.0186,0.0021,0.0149,0.0317,0.015,0.0162,0.0003,0.0116,-0.0108,0.0149,0.017,0.0119,0.017,0.0131,0.0176,0.0284,0.0211,0.0103,-0.0011,0.0142,0.006,0.0249,-0.0061,0.0058,0.0142,0.0085,0.0039,0.007,0.0163,0.019,0.0166,0.0327,0.0217,0.0129,0.0034,0.0392,0.0168,0.0032,0.0119,0.0068,0.0073,0.0007,0.0112,0.0132,-0.0008,-0.0223,0.0075,0.0103,0.0159,0.0106,0.0141,-0.001,0.0171,0.0172,0.0125,0.0236,0.014,0.0126,0.0127,0.0144,0.0206]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Day<\/th>\n      <th>Returns<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+```r
+returns &lt;- ts(rnorm(252,0.01,0.01))
+```
+---
+class:middle
+## `ts` objects and `ts` function
+
+For observations that are more frequent than once per year, add a `frequency` argument.
+
+E.g., monthly data stored as a numerical vector `z`:
+
+```r
+y &lt;- ts(z, frequency=12, start=c(2003, 1))
+```
+
+---
+class:middle
+## Class package
+```
+library(tidyverse)
+library(tidyquant)
+library(DT) # tables
+```
+`tidyquant` loads:
+
+  * **tq_get** function (for getting data from online sources)
+  * **tq_transmute** function (for transforming between time frequencies)
+  * **tq_mutate** function (create return series)
+
+`tidyverse` loads many packages include:
+
+  * **ggplot** plotting package
+  * **dplyr** data wrangling package
+
+---
+class:middle
+## Class package
+.large[
+```
+library(fpp2)
+```
+This loads:
+
+* **forecast** package (for forecasting functions)
+* **fma** package (for lots of time series data)
+* **expsmooth** package (for more time series data)
+]
+
+---
+class:middle
+## UK stock market time series
+.pull-left[
+* Download data using `tg_get`
+* Create a monthly series using `tq_transmute`
+
+
+```r
+ftse&lt;-tq_get("^FTSE",from="2020-01-01", to="2021-01-01")
+ftse_ts&lt;-ts(ftse$adjusted)
+```
+]
+.pull-right[
+### plot real price data
+`ts` object has plotting functionality.
+
+```r
+autoplot(ftse_ts)
+```
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+]
+---
+class:middle
+
+## Quarterly earnings time series
+- `ts` object have print functionality.
+
+.scroll-output[
+
+```r
+carnival_eps_ts
+```
+
+```
+##          Qtr1     Qtr2     Qtr3     Qtr4
+## 1994  0.07735  0.09112  0.19430  0.07906
+## 1995  0.07539  0.09966  0.23692  0.09653
+## 1996  0.08813  0.11869  0.29492  0.11565
+## 1997  0.08831  0.13112  0.30937  0.15478
+## 1998  0.11233  0.16555  0.34558  0.22477
+## 1999  0.16165  0.20701  0.42064  0.25645
+## 2000  0.17613  0.22483  0.46182  0.23329
+## 2001  0.15164  0.22579  0.58205  0.13920
+## 2002  0.15651  0.22640  0.55154  0.20973
+## 2003  0.13748  0.11333  0.58388  0.14919
+## 2004  0.13678  0.22556  0.70793  0.19112
+## 2005  0.22458  0.26438  0.81349  0.24068
+## 2006  0.17690  0.25200  0.81255  0.26662
+## 2007  0.18206  0.24817  0.86010  0.22026
+## 2008  0.15113  0.25085  0.93115  0.30837
+## 2009  0.23227  0.20763  0.83734  0.14958
+## 2010  0.14595  0.22010  1.07584  0.20181
+## 2011  0.11830  0.15843  1.04024  0.17732
+## 2012 -0.11210  0.01168  1.07657  0.07467
+## 2013  0.03143  0.03489  0.77908  0.05200
+## 2014 -0.01538  0.07532  0.96457 -0.08485
+## 2015  0.04082  0.18683  1.01750  0.23175
+## 2016  0.13304  0.55342  1.47251  0.66980
+## 2017  0.39069  0.40558  1.42729  0.56142
+## 2018  0.39528  0.59123  1.86293  0.55340
+## 2019  0.36473  0.51725  2.12022  0.47681
+```
+]
+
+---
+class:middle
+## rethinking visualisation using `ggplot2` 
+
+* `ggplot2` is based on [The Grammar of Graphics](http://amzn.to/2ef1eWp), 
+* the idea that you can build every graph from the same components: a data set, a coordinate system or aesthetics, and `geoms`
+* `geoms` visual marks that represent data points.
+
+---
+class: middle
+## Example: exchange rate time series
+
+.pull-left[
+
+```r
+usuk_rate %&gt;%  # Data
+  ggplot(aes(x=date, y=price )) + # Coordinate system
+  geom_line(colour="pink") + # geom
+  ggtitle("Cable Exchange Rate USD:GBP")
+```
+]
+.pull-right[
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-5-1.png" height="50%" style="display: block; margin: auto;" /&gt;
+]
+---
+class:middle
+## Your turn
+
+* Use `tq_get` to download the CBOE VIX Index from `2021-01-01` using the symbol `^VIX`
+* create a time series object using the VIX index price.
+* Plot this daily VIX Index Price using `autoplot`.
+* What can you infer from this plot?
+
+  **Hint:** the ts object of daily financial time series does not have a regular frequency to input into `ts()` function, so leave this argument blank.
+
+---
+class: middle
+## Simulation: *Fake it before you make it*
+.blockquote[ 
+### Statistical thinking &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 576 512"&gt;&lt;path d="M208 0c-29.9 0-54.7 20.5-61.8 48.2-.8 0-1.4-.2-2.2-.2-35.3 0-64 28.7-64 64 0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9-.9 4.6-1.4 9.3-1.4 14.1 0 39.8 32.2 72 72 72 4.1 0 8.1-.5 12-1.2 9.6 28.5 36.2 49.2 68 49.2 39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1 5.2-10.6 8.3-22.3 8.3-34.9 0-33.4-20.5-62-49.7-74 1-4.5 1.7-9.2 1.7-14 0-35.3-28.7-64-64-64-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72 31.8 0 58.4-20.7 68-49.2 3.9.7 7.9 1.2 12 1.2 39.8 0 72-32.2 72-72 0-4.8-.5-9.5-1.4-14.1 29-12 49.4-40.6 49.4-73.9z"/&gt;&lt;/svg&gt;
+You don't understand your model until you can simulate it: Gelman et al. (2020)]
+- .heatinline[Simulation of random variables is important in applied statistics for several reasons]
+
+--
+
+## Why
+
+--
+
+.red[
+* First, we use probability models to mimic variation in the world, and the tools of simulation can help us better understand how this variation plays out.] 
+
+.font80[
+- Patterns of randomness are notoriously contrary to normal human thinking
+- Our brains don’t seem to be able to do a good job understanding that random swings will be present in the short term but average out in the long run
+- And in many cases simulation is a big help in training our intuitions about averages and variation. 
+]
+
+---
+class:middle
+## Why *Fake it before you make it*?
+- .fancy[.red[Second, we can use simulation to approximate the sampling distribution of data and propagate this to the sampling distribution of statistical estimates and procedures.]]
+
+--
+- .red[Third, regression models are not deterministic; they produce probabilistic predictions.]
+
+  - Simulation is the most convenient and general way to represent uncertainties in forecasts. 
+  - Throughout this course and in our practice, we use simulation for all these reasons; 
+  - In this lecture we introduce the basic ideas and the tools required to perform simulations in `R`. 
+
+---
+class: middle
+## Why normal?
+
+* This is a plot of a normal distribution with mean equal to zero and variance equal to one.
+
+&lt;img src="03.explore_describe_files/figure-html/normalplot-1.png" height="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class:middle
+## Why normal?
+.pull-left[
+* Named after Carolo Friderico Gavss, the normal (or Gaussian) distribution is the most common used distributional assumption in statistical analysis.
+
+.bold[This is because:]
+
+* Easy to calculate with
+* Common in nature
+* Very conservative assumptions
+]
+
+.pull-right[
+&lt;img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9j_yAJM0s2c6iXVbXKasKNWQ5XW22_ljwiA&amp;usqp=CAU&gt;
+&lt;img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx8zfa57A1w7s30pkx-teN6HKi6ESb9BddSQ&amp;usqp=CAU&gt;
+]
+
+---
+class:middle
+## Experimental evidence
+
+* Suppose 100 stocks are issued at £1 each.
+* The change in stock price is dictated by a coin toss
+* Heads it goes up in price
+* Tails it goes down in price 
+* Each this process repeats for 252 trading days
+* What would the the distribution of the position of the students look like after 251 trading days?
+
+
+
+---
+class:middle
+
+## Experimental evidence
+
+.panelset[
+.panel[
+.panel-name[Set-up]
+- Experiment evidence is 
+- The following is a function in `R` which produces a matrix of fake prices using the formula
+`$$price_t=price_{t-1}+\text{Coin-Flip-Outcome} \\ \text{where } \\ price_{t=1}=1 \\ \text{ &amp; Coin-Flip-Outcome} \sim N(0,1)$$`
+]
+
+.panel[
+.panel-name[a simulator]
+
+- Function are engineered algorithms that code repeatable actions.
+- R at is core is a statistical programming language built using functions.
+.code80[
+
+```r
+rw_simulatorBQ&lt;-function(m,t,s_val) {
+  S&lt;-matrix(NA,nrow=t,ncol=m)
+  S[1,]&lt;-s_val
+  rn=matrix(rnorm(m*t),nrow=t,ncol=m)
+  for (mm in 1:m) {
+    for (tt in 2:t) {
+      S[tt,mm] = S[tt-1,mm] + rn[tt,mm]
+    }
+  }
+  return(S)
+}
+```
+]
+]
+.panel[
+.panel-name[function in action]
+.pull-left[
+- to activate a function you need to pass in some arguments
+- In our experiment above the arguments are `m=100, t=251`
+
+
+```r
+m=100; t=251
+set.seed(12345)
+out&lt;-rw_simulatorBQ(100,252,1)
+names(out)&lt;-paste0("RW",1:nrow(out))
+```
+]
+.pull-right[
+- Price paths of the 100 stocks for a year of trading
+- What can you infer from this experiment?
+&lt;img src="03.explore_describe_files/figure-html/plot output-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+]
+---
+class:middle
+
+## Why normal?
+
+* Processes that produce normal distributions include:
+  * Addition
+* Lots of process are approximately normal
+  * Product of small deviations
+  * logarithms of products
+  * Logarithms are just magnitudes
+  
+---
+class: middle
+## Why normal?
+.pull-left[
+### Epistemological perspective 
+* Know only *mean* and *variance*
+* Then least suprising and most conservative (*maximum entropy*) distribution is Gaussian.
+  * In terms of being conservative, it assumes the least; only the mean and variance. 
+* Nature likes maximum entropy distributions.
+]
+
+.pull-right[
+### Ontological perspective
+* Processes which add fluctuations results in dampening
+* Damped fluctuations end up Gaussian
+* No information left, except mean and variance.
+* Can't infer process from distribution!  Most do some more science.
+]
+
+---
+class: middle
+## Why normal asset returns?
+* Financial time series processes considered in this course:
+* Return series
+* Financial statement information
+* Volatility processes
+* Extreme events
+* Multivariate series
+
+---
+class: middle
+## Why assume normal asset returns?
+* Normality assumption allows for asset returns properties to be tractable.
+* Tractable mean and variance
+  * They provide information about the long-term return and risk, respectively.
+* Tractable symmetrical properties
+  * Symmetry has important implications in holding short and long financial positions in risk management.
+* Tractable kurtosis properties 
+  * Kurtosis is related to volatility forecasting, efficiency in estimation and tests,etc.
+
+---
+class:middle
+## Our first engineered robot
+
+* To engineer a statistical model of asset returns we need to make some assumptions about the .red[data story or *data generating process*.]
+
+.blockquote[
+
+`$$\{R_{it}|i-1,\dots N;t=1,\dots,T\} \stackrel{i.i.d}\sim N (m_1,m_2)$$`
+
+
+* A traditional assumption in financial analysis is the simple returns are independently and identically distributed (iid) as normal with a fixed mean `\(m_1\)` and variance `\(m_2\)`.
+]
+
+---
+class: middle
+## Our first engineered robot
+
+* The previous assumption is unrealistic in a number of ways:
+1. The lower bound of a simple return is -1, but a normal distribution has no lower bound.
+2. Multiperiod simple returns `\(R_it[k]\)` is not normally distributed as it is the *product* of one-period returns.
+3. Empirically, asset returns tend  to have *heavy tails* or **positive excess kurtosis**
+
+---
+class: middle
+## Our second statistical robot: .small[lognormal distribution]
+
+$$ \{r_{it}|i=1,\dots N ;t=1,\dots,T\} \stackrel{i.i.d}\sim N (\mu,\sigma^2) $$
+
+
+* Another common assumption is that log returns are iid as normal with mean `\(\mu\)` and variance `\(\sigma^2\)`.
+* As the sum of a finite number of iid random variables is normal, `\(r_t[k]\)` is also normally distributed.
+* There is also no lower bound for `\(r_t\)`
+* However, lognormal assumption is not consistent with **positive excess kurtosis**.
+
+
+---
+class: middle
+## Are stock returns distributed normally?
+.panelset[
+.panel[.panel-name[Ugly code]
+.pull-left[
+* The following code loads Glencore Plc asset prices from yahoo finance, converts daily adjusted prices to monthly log returns, and creates a monthly time series object.
+
+
+```r
+glen &lt;- tq_get("GLEN.L")
+glen_m &lt;- tq_transmute(glen,
+                       select = adjusted,
+                       mutate_fun = monthlyReturn,
+                       type="log",
+                       col_rename = "log_return")
+glen_m_ts &lt;- ts(glen_m$log_return,
+                frequency=12,start=c(2011,5))
+autoplot(glen_m_ts)
+```
+]
+.pull-right[
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[Piping `%&gt;%` code better?]
+
+```r
+tq_get("GLEN.L") %&gt;%
+  tq_transmute(select = adjusted,
+               mutate_fun = monthlyReturn,
+               type="log",
+               col_rename = "log_return") %&gt;%
+  select(log_return) %&gt;%
+  ts(frequency = 12,start = c(2011,5)) %&gt;%
+  autoplot()
+```
+
+- a pipe in programming allows you to elegantly add multiple actions together
+- In the above code the downloading of `GLEN.L` is followed by a `transmute` of the price to `log_return`. We then select only this variable, convert it to a monthly `ts` object and `autoplot`.
+
+]
+]
+---
+class:middle
+
+## Are stock returns distributed normally?
+.panelset[
+.panel[.panel-name[Visualise the distribution]
+
+* We can use `ggplot` to visualise the empirical distribution, superimposing what the returns would look like if they were normally distributed.
+
+* **Only two parameters (a mean and a variance) are required to create a hypothetical normal distribution of a returns series**
+  
+
+```r
+glen_m %&gt;% 
+  ggplot(aes(x=log_return)) +
+  geom_density() +
+  stat_function(
+    fun=dnorm,
+    args=list(mean(glen_m$log_return),
+              sd=sd(glen_m$log_return)),
+    col="red")
+```
+]
+.panel[.panel-name[Output]
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-11-1.png" height="50%" style="display: block; margin: auto;" /&gt;
+* **What patterns are revealed?**
+* The normal distribution is superimposed over the histogram of the daily equity returns.
+* Compared to the normal the distribution of the returns has longer tails and a higher central peak.
+* In statistical terms we say the distribution is leptokurtic, or fat-tailed.
+]
+]
+---
+class:middle
+## Are stock returns distributed normally?
+
+.panelset[
+.panel[.panel-name[Statistical Evidence]
+
+* Use `table.Stats` from the `tidyquant` package to obtain some summary statistics of the returns.
+* Note that a normally distributed series would have the following properties:  
+* zero mean, constant variance, zero skewness, and excess kurtosis of four.
+
+]
+.panel[.panel-name[Summarising returns]
+
+.pull-left[
+
+```r
+t&lt;-table.Stats(glen_m$log_return)
+t1&lt;-t[c("Observations","NAs","Arithmetic Mean","Skewness","Kurtosis"),]
+kable(t1, align = 'c', caption = " Selected summary statistics for monthly Glencore log returns (2016-2020)",booktabs=TRUE)  %&gt;%
+  kable_styling(bootstrap_options =c("striped"),latex_options=c("HOLD_position"))
+```
+]
+.pull-right[
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt; Selected summary statistics for monthly Glencore log returns (2016-2020)&lt;/caption&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Observations &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 105.0000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NAs &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.0000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Arithmetic Mean &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -0.0050 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Skewness &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -0.2650 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Kurtosis &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.3887 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+]
+]
+---
+class:middle
+## Why care about the normal distributed variables?
+
+.saltinline[
+- In regressions the assumption of normality of model errors is one of the least important
+- For the purpose of estimating the regression line it is barely important at all
+- Diagnostics of normality of errors is not recommended unless the model is being used to predict individual data points.
+]
+---
+class: middle
+## Why care about the normal distributed variables?
+
+- If the distribution of errors is of interest, perhaps because of predictive goals, this should be distinguished from the distribution of the data, `\(y\)`.
+- **A regression model does not assume or require that predictors are normally distributed**
+- Furthermore, the normal distribution on the outcome refers to the regression errors, not the raw data.
+- Depending on the structure of the predictors, it is possible for data `\(y\)` to be far from normally distributed even when coming from a linear regression model.
+- [See Gelman et al., (2020) Chapter 11 for more detail](https://doi-org.queens.ezp1.qub.ac.uk/10.1017/9781139161879.012)
+
+---
+class: middle
+## Null hypothesis significant testing
+
+* Null hypothesis significance tests (NHST) are models.
+* We assume an underlying data story with distributional properties which then allows us to create p-values based on null hypothesis.
+* In practice they are often misused to create 'bright line' acceptance or rejection decision about underlying theoretical questions.
+* In applied statistics the misuse 'p-values' in this framework is well understood 
+* Econometrics has keep conspicuously silent on the matter.
+
+---
+class: middle
+## The DO NOTs of p-values
+
+- The Do nots of p-values are well documented 
+.font[Wasserstein, R., and Lazar, N. (2016), “The ASA’s Statement on p-Values: Context, Process, and Purpose,” The American Statistician, 70, 129–133. DOI: 10.1080/00031305.2016.1154108.]
+
+1. Don’t base your conclusions solely on whether an association or effect was found to be “statistically significant” (i.e., the p-value passed some arbitrary threshold such as p&lt;0.05).
+
+2. Don’t believe that an association or effect exists just because it was statistically significant.
+
+3. Don’t believe that an association or effect is absent just because it was not statistically significant.
+
+4. Don’t believe that your p-value gives the probability that chance alone produced the observed association or effect or the probability that your test hypothesis is true.
+
+5. Don’t conclude anything about scientific or practical importance based on statistical significance (or lack thereof).
+
+
+---
+class: middle
+## There Are Many Do’s
+
+- [Wasserstein, et al. (2019)](https://doi.org/10.1080/00031305.2019.1583913) argue that the Do's from the dissonance can be summarise by the phrase
+.blockquotes[
+.blue[A]ccept uncertainty, be .blue[t]houghtful, .blue[o]pen and .blue[m]odest: .blue[ATOM]
+]
+
+---
+class:middle
+## Accept Uncertainty
+
+- Statistical methods do not rid data of their uncertainty. 
+
+- “Statistics,” [Gelman (2016)](http://www.stat.columbia.edu/~gelman/research/published/asa_pvalues.pdf) says, “is often sold as a sort of alchemy that transmutes randomness into certainty, an ‘uncertainty laundering’ that begins with data and concludes with success as measured by statistical significance.” 
+
+- To accept uncertainty requires that we “treat statistical results as being much more incomplete and uncertain than is currently the norm” [(Amrhein, Trafimow, and Greenland 2019)](https://www.tandfonline.com/doi/full/10.1080/00031305.2018.1543137) 
+
+- We must “countenance uncertainty in all statistical conclusions, seeking ways to quantify, visualize, and interpret the potential for error” [(Calin-Jageman and Cumming 2019).](https://www.tandfonline.com/doi/full/10.1080/00031305.2018.1518266)
+
+
+---
+class: middle
+## Are stock returns distributed normally?
+
+.panelset[
+.panel[.panel-name[**Statistical Evidence**]
+
+* In `R` we can use `jarque.test` in the `moments` package which is a joint test of the null hypothesis that skewness=0 and kurtosis=3
+
+
+```r
+moments::jarque.test(glen_m$log_return)
+```
+
+```
+## 
+## 	Jarque-Bera Normality Test
+## 
+## data:  glen_m$log_return
+## JB = 26.191, p-value = 2.054e-06
+## alternative hypothesis: greater
+```
+]
+.panel[.panel-name[**Inference**]
+  **Statistical inference**
+* Assuming the models underpinning the previous NHST are valid, we can reject the Null that Glencore monthly log returns are normally distributed at even the 1% significance level.
+
+**Practical inference**
+* Modeling extreme observations may need more distributional tools.
+.content-box-gray[.font70[
+Some heavy tail distribution alternatives
+
+| Distribution| Explanation|
+|:--:|:--:|
+|Student's t|very similar to the normal but wider and lower|
+|Stable| generalisation of the normal, stable under addition thus can be used with log returns, can capture excess kurtosis well but has infinite variance which conflicts with finance theory|
+|Scale mixture| a combination of a number of normals|
+
+]]
+]
+]
+
+
+---
+class: middle
+## Rethinking time plots
+
+.fatinline[
+* One **limitation** with time plots is that the simple passage of time is not a good explanatory variable.
+* There are occasional exceptions where there is a clear mechanism driving the financial time series.
+* **Descriptive chronology is not causal explanation** - 
+&lt;footer&gt;Edward Tufte (2015) The visual display of quantitative information P37&lt;/footer&gt;
+]
+
+---
+class: middle, inverse
+## Time plots
+
+
+
+```r
+glen_m %&gt;%ggplot(aes(x=date,y=log_return)) + 
+  geom_line()
+```
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+class:
+## Seasonal plots
+.panelset[
+.panel[.panel-name[code]
+.pull-left[
+
+```r
+glen_m_ts %&gt;% ggseasonplot(year.labels=TRUE,
+                           year.labels.left=TRUE) + 
+  ylab("") + 
+  ggtitle("Seasonal plot: Glencore returns")
+```
+]
+.pull-right[
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-14-1.png" height="50%" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[Inference]
+
+  * Data plotted against the individual "seasons" in which the data were observed.  (In this case a "season" is a month.)
+  * Something like a time plot except that the data from each season are overlapped.
+  * Enables the underlying seasonal pattern to be seen more clearly, and also allows any substantial departures from the seasonal pattern to be easily identified.
+  * In R: `ggseasonplot()`
+]
+]
+
+---
+class: middle
+## More Seasonal plots
+.panelset[
+.panel[.panel-name[Polar plot]
+.pull-left[
+
+```r
+glen_m_ts %&gt;% ggseasonplot(polar=TRUE) + ylab("")
+```
+]
+.pull-right[
+
+```r
+glen_m_ts %&gt;% ggseasonplot(polar=TRUE) + ylab("")
+```
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-16-1.png" height="60%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+.panel[.panel-name[subseries plot]
+
+.pull-left[
+
+```r
+ggsubseriesplot(glen_m_ts) + ylab("") +
+  ggtitle("Subseries plot: Glencore returns")
+```
+]
+.pull-right[
+
+```r
+ggsubseriesplot(glen_m_ts) + ylab("") +
+  ggtitle("Subseries plot: Glencore returns")
+```
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-18-1.png" height="60%" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[Inference]
+* Data for each season collected together in time plot as separate time series.
+* Enables the underlying seasonal pattern to be seen clearly, and changes in seasonality over time to be visualized.
+]
+]
+
+---
+class: middle
+## Time series patterns
+.blockquote[
+Trend
+  : pattern exists when there is a long-term increase or decrease in the data.
+
+Seasonal
+  : pattern exists when a series is influenced by seasonal factors (e.g., the quarter of the year, the month, or day of the week).
+
+Cyclic
+  : pattern exists when data exhibit rises and falls that are \emph{not of fixed period} (duration usually of at least 2 years).
+]
+---
+class: middle
+### Differences between seasonal and cyclic patterns:
+
+* seasonal pattern constant length; cyclic pattern variable length
+* average length of cycle longer than length of seasonal pattern
+* magnitude of cycle more variable than magnitude of seasonal pattern
+
+---
+class: middle
+## Time series patterns
+.panelset[
+.panel[.panel-name[NI house sales]
+&lt;img src="03.explore_describe_files/figure-html/NI house sales-1.png" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[Quarterly earnings data]
+&lt;img src="03.explore_describe_files/figure-html/eps-1.png" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[T-Bills]
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+
+---
+class:middle
+## Seasonal or cyclic?
+- Differences between seasonal and cyclic patterns:
+
+* seasonal pattern constant length; cyclic pattern variable length
+* average length of cycle longer than length of seasonal pattern
+* magnitude of cycle more variable than magnitude of seasonal pattern
+
+.blockquote[
+The timing of peaks and troughs is predictable with seasonal data, but unpredictable in the long term with cyclic data.
+]
+
+---
+class: middle
+## Lag plots and autocorrelation
+.panelset[
+.panel[.panel-name[Example: Earnings per share]
+
+
+```r
+gglagplot(carnival_eps_ts)
+```
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[Lagged scatterplots]
+  * Each graph shows `\(y_t\)` plotted against `\(y_{t-k}\)` for
+different values of `\(k\)`.
+  * The autocorrelations are the correlations associated
+with these scatterplots.
+]
+]
+
+---
+class: middle
+## Autocorrelation
+
+**Covariance** and **correlation**: measure extent of **linear relationship** between two variables `\(y \text{ and }X\)`.
+
+--
+
+**Autocovariance** and **autocorrelation**: measure linear relationship between **lagged values** of a time series `\(y\)`.
+
+--
+
+- We measure the relationship between:
+
+  * `\(y_{t}\)` and `\(y_{t-1}\)`
+  * `\(y_{t}\)` and `\(y_{t-2}\)`
+  * `\(y_{t}\)` and `\(y_{t-3}\)`
+  * etc.
+
+---
+class: middle
+## Autocorrelation
+
+- We denote the sample autocovariance at lag `\(k\)` by `\(c_k\)` and the sample autocorrelation at lag `\(k\)` by `\(r_k\)`.  Then define
+
+`\begin{align*}
+c_k &amp;= \frac{1}{T}\sum_{t=k+1}^T (y_t-\bar{y})(y_{t-k}-\bar{y}) \\
+\text{and}\qquad
+r_{k} &amp;= c_k/c_0
+\end{align*}`
+
+* `\(r_1\)` indicates how successive values of  `\(y\)`  relate to each other
+* `\(r_2\)` indicates how  `\(y\)` values two periods apart relate to each other
+* `\(r_k\)` is *almost* the same as the sample correlation between `\(y_t\)` and `\(y_{t-k}\)`.
+
+---
+class: middle
+## Autocorrelation
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+
+* `\(r_{4}\)`  higher than for the other lags. This is due to **the seasonal pattern in the data**: the peaks tend to be **4 quarters** apart and the troughs tend to be **2 quarters** apart.
+* `\(r_2\)` is more negative than for the other lags because troughs tend to be 2 quarters behind peaks.
+* Together, the autocorrelations at lags 1, 2, ..., make up the **autocorrelation** or ACF.
+* The plot is known as a **correlogram**
+
+---
+class: middle
+## Trend and seasonality in ACF plots
+
+- When data have a trend, the autocorrelations for small lags tend to be large and positive.
+- When data are seasonal, the autocorrelations will be larger at the seasonal lags (i.e., at multiples of the seasonal frequency)
+- When data are trended and seasonal, you see a combination of these effects.
+
+---
+class: middle
+## Carnival quarterly earnings
+.panelset[
+.panel[.panel-name[Time plot]
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[ACF]
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
+
+]
+.panel[.panel-name[Inference]
+- Time plot shows clear trend and seasonality.
+
+- The same features are reflected in the ACF.
+
+* The slowly decaying ACF indicates trend.
+* The ACF peaks at lags 4, 8, 12, 16, 20, ..., indicate seasonality of length 4.
+
+]
+]
+
+---
+class: middle
+## Glencore daily stock price
+.panelset[
+.panel[.panel-name[glencore download]
+
+
+]
+.panel[.panel-name[glencore plot]
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[glencore ACF]
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+
+---
+class: middle
+# White noise
+.panelset[
+.panel[.panel-name[Code]
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
+
+- This code using the `rnorm` function to simulate 36 random variables. 
+- See `help(rnorm)`
+
+]
+.panel[.panel-name[Output]
+
+
+```
+## \begingroup\small
+## \begin{tabular}{rr}
+##    \midrule
+## $r_{1}$ &amp; -0.01 \\ 
+##   $r_{2}$ &amp; -0.11 \\ 
+##   $r_{3}$ &amp; -0.13 \\ 
+##   $r_{4}$ &amp; -0.13 \\ 
+##   $r_{5}$ &amp; 0.28 \\ 
+##   $r_{6}$ &amp; 0.08 \\ 
+##   $r_{7}$ &amp; -0.17 \\ 
+##   $r_{8}$ &amp; -0.06 \\ 
+##   $r_{9}$ &amp; 0.11 \\ 
+##   $r_{10}$ &amp; 0.21 \\ 
+##   \end{tabular}
+## \endgroup
+```
+- Sample autocorrelations for white noise series.
+- We expect each autocorrelation to be close to zero.
+]
+]
+
+---
+class: middle
+## Sampling distribution of autocorrelations
+
+Sampling distribution of `\(r_k\)` for white noise data is asymptotically N(0,$1/T$).
+
+  * 95% of all `\(r_k\)` for white noise must lie within `\(\pm 1.96/\sqrt{T}\)`.
+  * If this is not the case, the series is probably not WN.
+  * Common to plot lines at `\(\pm 1.96/\sqrt{T}\)` when plotting ACF.
+
+- These are the .orange[.bold[critical values]].
+
+---
+class: middle
+## Autocorrelation
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+
+.blockquote[
+- `\(T=36\)` and so critical values at `\(1.96/\sqrt{36}=0.327\)`.
+
+- All autocorrelation coefficients lie within these limits, confirming  that the data are white noise. (More precisely, the data cannot be \\
+distinguished **from white noise**
+]
+
+---
+class: middle
+## Example: US Investor Sentiment
+
+.panelset[
+.panel[.panel-name[Time plot]
+- This data captures the sentiment of a collection of professional investors. 
+- Specifically, it tries to answer the question:
+
+.red[What Direction Do AAII Members Feel The Stock Market Will Be In The Next 6 Months?]
+
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
+
+]
+.panel[.panel-name[autocorrelation function]
+&lt;img src="03.explore_describe_files/figure-html/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[Inference]
+- The [AAII Sentiment Survey](https://www.aaii.com/journal/sentimentsurveyarticle) measures the percentage of individuals who are bullish, bearish, and neutral about the stock market over the next six months.
+
+* Difficult to detect pattern in time plot.
+* ACF shows some significant autocorrelation on all 30 lags.
+* After `\(r_{15}\)` there seems to be a undulating pattern.
+* These show the series is **not a white noise series**.
+]
+]
+
+
+---
+class:middle
+## Your turn
+
+You can compute the daily changes in the Google stock price using
+```r
+dgoog &lt;- diff(goog)
+```
+Does `dgoog` look like white noise?
+
+---
+class: middle
+## Noise in Financial Data
+![](data:image/jpeg;base64,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)
+.blockquote[
+Noise makes trading in financial markets possible, and thus allows us to observe prices in financial assets. [But] noise also causes markets to be somewhat inefficient…. . Most generally, noise makes it very difficult to test either practical or academic theories about the way that financial or economic markets work. We are forced to act largely in the dark
+
+[Fisher Black, “Noise”, Journal of Finance ,41 ,3 (1986) p529](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-6261.1986.tb04513.x)
+
+] 
+
+---
+class:middle
+
+## Financial Data Forecastability
+
+  - Predictability of an event or quantity depends on several factors
+  1. How well we understand the factors that contribute to it
+  2. How much data are available
+  3. Whether the forecast can affect the thing we are trying to forecast
+
+---
+class: middle
+## Signal and the Noise
+
+  - High quality models identify the signal from the noise in financial data.
+  - The **signal** is the regular pattern that is likely to repeat.
+  - The **noise** is the irregular pattern which occurrs by chance and unlikely to repeat.
+  - Overfitting or data snooping can result in your model capturing both **signal** and **noise**.
+  - Overfitted models usually produce poor predictions and inferences.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
