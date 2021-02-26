@@ -48,4 +48,3 @@ d.	natural language processing
 e.	advanced data visualisation
 4.	Proficiency in one or more program languages, such as R or Python or equivalent.
 5.	The ability to work independently and collaboratively at the frontier of research knowledge with a growth mindset.
-
