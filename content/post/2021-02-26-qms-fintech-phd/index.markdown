@@ -16,22 +16,21 @@ image:
   preview_only: no
 projects: []
 ---
-# Overview
+## Overview
 Artificial intelligence (AI) and machine learning (ML) technologies have revolutionised and transformed how customers interact with financial services providers. Yet little research has been undertaken on how the customer experience in financial service provision has changed. This funded PhD is undertaken in partnership with Core Credit Union and offers a unique opportunity to understand how digital innovations affect a highly valued financial service provision experience. Using access to member-level data this project seeks to understand the risk and opportunities AI and ML innovation technologies present to the service delivery and operational effectiveness in Irish Credit Unions. Specifically, the research project aims to quantitatively address three broad areas:
 1.	Regulatory technology and the effective management of credit union sector stability and growth.
 2.	ML innovations to credit risk prediction and the development of new products.
 3.	Customer experience innovations using AI and ML techniques and digital platforms.
-This funded PhD offers a unique experience for the successful candidate to understand and developed their own individualized niche in a fast-growing area of finance.  
+This funded PhD offers a unique experience for the successful candidate to understand and developed their own individualized niche in a fast-growing area of finance.
+
+The successful candidate with be jointly supervised by Professor Donal McKillop and myself. Donal has published extensively on credit unions including work on their ownership structure, governance, regulatory change, capital adjustment and merger and acquisition behavior. Donal is currently Director of Centre for Not-for-profit and Public-sector Research (CNPR) at Queen’s University and Chair of the Chairperson of the Credit Union CEO Forum (CU CEO Forum.ie).
 
 ## Collaborative Industry placement
 The goal of this project is to achieve output with significant impact for the industry partner. The successful candidate will liaise closely with key industry stakeholders and have direct industry experience via a work placement.
 
 
-# Supervisors
-The successful candidate with be jointly supervised by Professor Donal McKillop and Dr. Barry Quinn. Donal has published extensively on credit unions including work on their ownership structure, governance, regulatory change, capital adjustment and merger and acquisition behavior. Donal is currently Director of Centre for Not-for-profit and Public-sector Research (CNPR) at Queen’s University and Chair of the Chairperson of the Credit Union CEO Forum (CU CEO Forum.ie). Barry is a professionally chartered statistician with the Royal Statistical Society. He has 10 years quantitative finance industry experience in financial services. His research expertise includes applying AI and ML techniques to financial problems. He has consulted with local firms on statistical prediction and machine learning projects. Mostly recently he was lead academic on a £160K KTP project on the application of AI and ML in the retail analytics industry. Barry and Donal currently supervise PhD students in the area of financial machine learning. Barry is primary supervisor for a DEL-funded student who investigating the benefits and pitfalls of machine learning in UK asset pricing. Donal is primary supervisor (and Barry is co-supervisor) to an internationally funded student who is investigating ML predictability and interpretability in US credit union merger activity.
-
 ## Funding and candidate criteria
-The position is fully funded by a [CAST studentship](https://www.nidirect.gov.uk/articles/co-operative-awards-science-and-technology) fro the Northern Ireland Department of the Economy (DfE). 
+The position is fully funded by a [CAST studentship](https://www.nidirect.gov.uk/articles/co-operative-awards-science-and-technology) fro the Northern Ireland Department of the Economy (DfE).
 
 The value of a DfE studentship for UK domiciled students the value of an award includes the cost of approved fees as well as maintenance support. In academic year 2020-2021 the basic rate of maintenance support for a Research Studentship is £15,285 while the basic rate of maintenance support for a Taught Studentship is  £7,643. For non-domiciled UK candidate please read the eligibility criteria for  DfE studentships [here](https://www.nidirect.gov.uk/articles/department-economy-studentships).
 
