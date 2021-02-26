@@ -8,10 +8,10 @@
   #url = "about/"
   #weight = 10
 
-#[[main]]
-#  name = "Posts"
-#  url = "#posts"
-#  weight = 20
+[[main]]
+  name = "Drivel"
+  url = "post/"
+  weight = 20
 
 #[[main]]
 # name = "Projects"
@@ -22,7 +22,7 @@
   name = "Publications"
   url = "publication/"
   weight = 10
-  
+
 [[main]]
   name = "QSMF"
   url = "smf/"

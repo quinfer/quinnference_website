@@ -1,5 +1,5 @@
 ---
-title: Posts
+title: Drivel and other stories
 
 # View.
 #   1 = List
