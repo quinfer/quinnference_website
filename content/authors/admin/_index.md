@@ -18,7 +18,7 @@ bio: "Barry"
 
 interests:
 - Computer age statistical inference
-- Financial machine Learning
+- Responsible AI
 - Banking
 - Association Football
 
