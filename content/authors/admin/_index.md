@@ -18,7 +18,7 @@ bio: "Barry"
 
 interests:
 - Computer age statistical inference
-- Responsible AI in finance
+- Responsible AI in Business
 - Banking and credit unions
 - Association Football
 
@@ -79,4 +79,4 @@ social:
 #- Visitors
 ---
 
-I am a passionate lecturer who encourages learning through growth rather than memory. I research to feed my curiousity. My research interests include computer age statistical inference, RAI, banking, and association football. I founded and provides oversight for the Queen's Student Managed fund. I run the masters in quantitative finance, and teaches graduate-level statistics for time series and algorithmic trading and investment. I have extensive statistical consulting and professional training experience and have worked with local companies to build large-scale computer age statistical forecasting infrastructure. Finally, I recently built and maintain a high-performance cloud computing resource for teaching and research in the Management School. 
+I am a passionate lecturer who encourages learning through growth rather than memory. I research to feed my curiousity. My research interests include computer age statistical inference, Responsible AI, banking, and association football. I founded and provides oversight for the Queen's Student Managed fund. I run the masters in quantitative finance, and teaches graduate-level statistics for time series and algorithmic trading and investment. I have extensive statistical consulting and professional training experience and have worked with local companies to build large-scale computer age statistical forecasting infrastructure. Finally, I recently built and maintain a high-performance cloud computing resource for teaching  in the Management School.  This resources using [RStudio Professional](https://www.rstudio.com/products/team/) products so that student can learn how to produce agile, credible, and reproducible digital solutions to modern business/finance anayltic challenges.  
