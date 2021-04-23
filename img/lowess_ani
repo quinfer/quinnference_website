@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="generator" content="R package animation 2.6">
+	<title>Animations Using the R Language</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/scianimator.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.scianimator.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+	<div class="scianimator"><div id="Rplot" style="display: inline-block;"></div></div>
+	<div class="scianimator" style="width: 480px; text-align: left"><pre><code class="r">## Animations generated in R version 4.0.2 (2020-06-22)
+##   using the package animation
+library(animation)
+library(ati)
+library(ggdendro)
+library(fungible)
+library(factoextra)
+library(fpc)
+library(forcats)
+library(stringr)
+library(dplyr)
+library(purrr)
+library(readr)
+library(tidyr)
+library(tibble)
+library(ggplot2)
+library(tidyverse)
+library(RefManageR)
+library(xaringanExtra)
+library(fontawesome)
+library(knitr)
+.
+## R version 4.0.2 (2020-06-22)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Other packages: animation 2.6, ati 0.0.0.9000, ggdendro 0.1.22, fungible 1.96.3, factoextra
+## 1.0.7, fpc 2.2-9, forcats 0.5.0, stringr 1.4.0, dplyr 1.0.3, purrr 0.3.4, readr 1.4.0, tidyr
+## 1.1.2, tibble 3.0.6, ggplot2 3.3.2, tidyverse 1.3.0, RefManageR 1.3.0, xaringanExtra 0.2.4,
+## fontawesome 0.1.0, knitr 1.31</code></pre></div>
+	<script src="js/Rplot.js"></script>
+<!-- highlight R code -->
+
+</body>
+</html>
