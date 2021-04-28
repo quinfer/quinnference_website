@@ -16,6 +16,9 @@ image:
   preview_only: no
 projects: []
 ---
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">ATTENTION! PhD Studentship - How AI Innovation Affect A Highly Valued Financial Service Provision Experience with <a href="https://twitter.com/quinference?ref_src=twsrc%5Etfw">@quinference</a>. Closing 31 March 2021 <a href="https://twitter.com/hashtag/PhD?src=hash&amp;ref_src=twsrc%5Etfw">#PhD</a> <a href="https://twitter.com/hashtag/Postgraduate?src=hash&amp;ref_src=twsrc%5Etfw">#Postgraduate</a><br><br>For more information please visit: <a href="https://t.co/0pvB2Wji85">https://t.co/0pvB2Wji85</a> <a href="https://t.co/VZD8R7Fkyh">pic.twitter.com/VZD8R7Fkyh</a></p>&mdash; QUBManagement (@QUBManagement) <a href="https://twitter.com/QUBManagement/status/1367848645178097672?ref_src=twsrc%5Etfw">March 5, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Overview
 Artificial intelligence (AI) and machine learning (ML) technologies have revolutionised and transformed how customers interact with financial services providers. Yet little research has been undertaken on how the customer experience in financial service provision has changed. This funded PhD is undertaken in partnership with Core Credit Union and offers a unique opportunity to understand how digital innovations affect a highly valued financial service provision experience. Using access to member-level data this project seeks to understand the risk and opportunities AI and ML innovation technologies present to the service delivery and operational effectiveness in Irish Credit Unions. Specifically, the research project aims to quantitatively address three broad areas:
 1.	Regulatory technology and the effective management of credit union sector stability and growth.
@@ -48,3 +51,4 @@ d.	natural language processing
 e.	advanced data visualisation
 4.	Proficiency in one or more program languages, such as R or Python or equivalent.
 5.	The ability to work independently and collaboratively at the frontier of research knowledge with a growth mindset.
+
