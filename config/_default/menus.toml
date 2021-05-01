@@ -20,17 +20,17 @@
 
 [[main]]
   name = "Publications"
-  url = "publication/"
+  url = "content/publication/"
   weight = 10
 
 [[main]]
   name = "QSMF"
-  url = "smf/"
+  url = "content/smf/"
   weight = 20
 
 [[main]]
   name = "Teaching"
-  url = "teaching/"
+  url = "content/teaching/"
   weight = 30
 
 #[[main]]
