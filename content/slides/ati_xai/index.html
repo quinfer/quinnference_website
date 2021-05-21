@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Algorithmic trading and investment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Barry Quinn" />
+    <meta name="date" content="2021-04-22" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.4/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.4/panelset.js"></script>
+    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="fonts.css" type="text/css" />
+    <link rel="stylesheet" href="mycssblend.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;&lt;span&gt;quinference.com&lt;/span&gt;&lt;/div&gt;
+
+---
+name: ATL-title
+class: inverse,left, middle
+background-image: url(/Dropbox/Teaching/FinancialMachineLearning/FML/slides/img/title-slide-img.png)
+background-size: cover
+
+.salt[FIN7030]
+
+# Algorithmic Trading and Investing 
+
+# .fancy[Algorithms, Inference and XAI]
+
+.large[Barry Quinn | Queen's Management School | 2021-04-22]
+
+
+---
+class:inverse, middle
+# Outline
+.large[
+- Financial machine learning as an inference engine
+- Classical feature importance pitfalls
+- Responsible AI and explainability 
+- e.glow[X]plainable .glow[A]rtficial .glow[I]ntelligence
+- A case study example in finance
+]
+
+
+---
+class: middle
+# Scientific method in finance
+- Now consider a researcher interested in modeling a dynamic system as a function of many different candidate explanatory variables. 
+- Only a small subset of those candidate variables are expected to be relevant, however the researcher does not know in advance which. 
+- The approach generally followed in the financial literature is to try to fit a guessed algebraic function on a guessed subset of variables, and see which variables appear to be statistically significant (subject to that guessed algebraic function being correct, including all interaction effects among variables). 
+- Such an approach is counter intuitive and likely to miss important variables that would have been revealed by unexplored specifications.
+
+---
+class: middle
+# Scientific method and FML
+- An alternative approach would be to 
+.blockquote[
+### FML inference engine
+Isolate the important variables, irrespective of any functional form, and only then try to fit those variables to a particular specification that is consistent with those isolated variables. 
+]
+- ML techniques allow us to disentangle the specification search from the variable search, a key weakness in traditional econometrics.
+
+
+---
+class: middle
+# Machine learning as a scientific discovery tool
+- ML provides intuitive and effective tools for researchers who work on the development of theories. 
+
+- This is counter to the popular myth that supervised ML models are black-boxes. 
+
+- According to that view, supervised ML algorithms find predictive patterns, however researchers have no understanding of those findings. 
+
+- In other words, the algorithm has learned something, not the researcher. 
+
+- This criticism is unwarranted.
+
+- Even if a supervised ML algorithm does not yield a closed-form algebraic solution (like, for example, a regression method would do), an analysis of its forecasts can tell us what variables are critically involved in a particular phenomenon, what variables are redundant, what variables are useless, and how the relevant variables interact with each other. 
+
+---
+class: middle
+# What is the role feature analysis?
+
+- .acidinline[With the help of ML, feature analysts find which variables are able to predict a particular outcome]
+
+- ML algorithms decouple the specification search from the variable search
+
+- .saltinline[The patterns identified by feature analysts do not imply causation]
+
+- Strategists/Economists must hypothesize the cause effect mechanism that underlies the pattern uncovered by feature analysts
+
+- That hypothesis can then be tested, in order to discriminate causation from mere codependence
+
+---
+class: middle
+# Feature Analysis versus Backtesting
+
+- Backtesting is not a research tool but a validation tool
+- By the time we backtest , research should have concluded
+- Building a hypothesis through backtesting leads to selection bias and false discoveries
+- The goal of backtesting is not to form a hypothesis
+- On the contrary, one goal of backtesting is to deconstruct a hypothesis, and to prove the researcher wrong through counter examples.
+- To form a hypothesis, first we must find the variables involved in a phenomenon
+- This is the key role of Feature Analysis
+
+.blockquote[
+Backtest overfitting results from confounding **research** with **validation**.  The failure of most quantitative funds can be traced back to this basic misunderstanding of the scientific method
+]
+
+---
+class:middle
+## Feature analysis and the Scientific process
+
+<div id="htmlwidget-98716db12db024129ac1" style="width:800px;height:500px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-98716db12db024129ac1">{"x":{"diagram":"digraph {\n  graph [layout = dot, rankdir = LR]\n  \n  node [shape = rectangle]        \n  \n  rec1 [label = \"Data Curator\"]\n  rec2 [label = \"Vendor, web-scrapping\"]\n  rec3 [label =  \"Data Collection\"]\n  rec4 [label = \"Feature Analyst\",color=\"red\"]\n  rec5 [label = \"MAD, PDP,ALE,Shapley Values...\",color=\"red\"]\n  rec6 [label = \"Pattern Identification\",color=\"red\"]\n  rec7 [label = \"Strategy Developer\"]\n  rec8 [label = \"Investment Algorithm\"]\n  rec9 [label=\"Hypothesis\"]\n  rec10 [label=\"Test hypothesis, backtest\"]\n  rec11 [label=\"Deflated Sharpe Ratio\"]\n  rec12 [label=\"Peer Review\"]\n  # edge definitions with the node IDs\n  rec1 -> rec2 -> rec3\n  rec4 -> rec5 -> rec6\n  rec7 -> rec8 -> rec9\n  rec10 -> rec11 -> rec12\n  subgraph cluster1{\n  label=\"Assembly Line \n (Investments)\";rank=same;rec1;rec2;rec4;rec5;rec7;rec8;rec10;rec11; \n  }\n  subgraph cluster2{\n  label=\"Scientific method \n (Academia)\";\n  rank=same;rec3;rec6;rec9;rec12;\n  }\n  subgraph cluster3{\n  rank=same;rec1;rec2;rec3;rec4;rec5;rec6;rec7;rec8;rec9\n  }\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+---
+class: middle
+## Understanding p-Values
+
+- In Classical Econometrics feature importance is assessed using p-values.
+
+.blockquote[
+The idea of using a p‐value for hypothesis testing was introduced by Fisher (1925). His idea is to objectively separate findings of interest from noise. The null hypothesis is usually a statement of no relation between variables or no effect of an experimental manipulation.The p‐value is the probability of observing an outcome or a more extreme outcome if the null hypothesis is true.
+&lt;footer&gt;Harvey 2017&lt;/footer&gt;
+]
+
+- Importantly, Fisher argues that the p‐value should be used in conjunction with other types of evidence when available.
+
+---
+class: middle
+## Understanding p-Values
+
+- Neyman and Pearson (1933) provide a different (and incompatible) framework that compares two hypotheses, the null and the alternative.
+
+- They introduce the idea of a Type I error (false positive rate, or rejecting the null when the null is true) and a Type II error (false negative rate, or failing to reject the null when the alternative is true). 
+
+.blockquote[
+There was a fierce debate between Fisher and NP. Over time, Fisher's p‐value has been embedded in the NP framework in a way that often obscures its original meaning. NP introduced the idea of the Type I error rate, which is the false positive rate in repetitive experiments. The p‐value for a test statistic is compared to the Type I error threshold to determine the test outcome, creating a subtle link between the p‐value and the Type I error rate. As a result, people often mistakenly describe the p‐value as the Type I error rate.
+&lt;footer&gt;Harvey 2017&lt;/footer&gt;
+]
+
+---
+class: middle
+### Pitfall 1: Specification - Significance Entanglement
+
+- p-values are typically computed on the estimated coefficients of a given model
+- When the p-value is less than 5%, the variable associated with that coefficient is deemed statistically significant, under the assumption that the model is correctly specified
+- Thus, p-values cannot tell us whether a variable is significant per se. 
+- .content-box-red[They cannot decouple the specification search from the significance search]
+- In finance, where systems are so complex that researchers can only guess the correct specification, p-values are likely to lead to false conclusions
+
+---
+class: middle
+### Pitfall 2: In-Sample Estimates
+.pull-left[
+- Least squares regressions attempt to adjudicate variance in-sample, not forecast
+* .glowinline[Informational leakage: Each observation is used for fitting the model and evaluating the model]
+
+* p-values are derived from estimation errors (in-sample), not generalization errors (out-of- sample) 
+* A variable that appears to be significant may indeed have little predictive power
+* In this example, an OLS regression (red line) attempts to minimize the in-sample error
+* The p-value is low, even though the model gets the sign of the relationships wrong
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: middle
+### Pitfall 3: A Dubious Probability
+- In finance when we are dealing with high-dimensional data (many features), p-values become useless.
+- When we are testing many *features* at the same time (multiple testing), the definition of a p-value does not provide a useful quantification.
+.blockquote[
+### Rethinking p-values in algorithmic investment
+- Suppose that the probability of a backtested strategy being profitable is 1% (the ground truth)
+- The quant analyst wants to test 1000 strategies and find the true profitable strategies, each strategy has a sample size of 100
+- If thinks that using p-values&lt;0.05 as a cut-off for choosing is a profitable.
+- What are the consequences of his actions?
+]
+---
+class: middle
+## Simulation of false discovery rate
+.pull-left[
+
+```r
+popn&lt;-as.numeric(ati::daily_factors$hml)
+alpha &lt;- 0.05
+N &lt;- 100 # sample size
+m &lt;- 1000 # number of strategies
+p0&lt;-0.99 # 99% of strategies are not profitable
+m0 &lt;- m*p0 # number of truly unprofitable strategies
+m1 &lt;- m-m0 # number of truly profitable strategies
+nullHypothesis &lt;- c( rep(TRUE,m0), rep(FALSE,m1))
+delta &lt;- 10 # average profitability of the strategies is 10%
+set.seed(12)
+calls &lt;- sapply(1:m, function(i){
+  control &lt;- sample(popn,N)
+  treatment &lt;- sample(popn,N)
+  if(!nullHypothesis[i]) treatment &lt;- treatment + delta
+  ifelse( t.test(treatment,control)$p.value &lt; alpha, 
+          "Called Significant",
+          "Not Called Significant")
+})
+```
+]
+.pull-right[
+.small[
+
+```r
+null_hypothesis &lt;- factor(nullHypothesis, levels=c("TRUE","FALSE"))
+table(null_hypothesis,calls) %&gt;% kable(col.names = ) %&gt;% kableExtra::kable_material()
+```
+
+&lt;table class=" lightable-material" style='font-family: "Source Sans Pro", helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Called Significant &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Not Called Significant &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 942 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+- Row 1 of the table represents the number of truly unprofitable strategies
+- Row 2 of the table represents the number of truly profitable strategies
+- The table shows that there were 58 strategies that were **called significant**
+- Of those 48 are false positives. 
+- .content-box-red[This evidences shows that under the rule p-value&lt;0.05 83 % of the discoveries are false]
+- The problem is, p-values evaluate a somewhat irrelevant probability tell us the `\(Prob(X|x&gt;|H_0|)\)`
+- What we really care about is a different probability: `\(Prob(H_1|X&gt;x)\)`
+]
+]
+
+---
+class: middle
+# Pitfall 6: P-hacking
+- If hypotheses are tested more than once on a given dataset, the probability of a false positive exceeds `\(\alpha\)`
+- Selecting the model with lowest p-values out of multiple trials leads to selection bias
+- In finance, where datasets are limited, it is highly likely that a researcher reuses a datasets multiple times
+- Virtually no paper published in financial academic journals controls for the number of trials involved in a discovery (K)
+- It is highly likely that published p-values are artificially low (false positives)
+---
+class: middle
+## Pitfall 7: Substitution effects
+- In addition to correct model specification, p- values require (among other assumptions):
+.blockquote[
+* Uncorrelated predictors (no multicollinearity)
+* White noise residuals
+* Normally-distributed residuals
+* No outliers
+]
+- In particular, p-values are not robust to multicollinearity (linear substitution effects)
+- Because of this lack of robustness, important variables can be assigned high p-values, and be wrongly dismissed as irrelevant
+
+---
+class: middle
+## The problem with p-values are not just p-values
+.acidinline[
+- [Gelman (2016)](http://www.stat.columbia.edu/~gelman/research/published/asa_pvalues.pdf) comments that problem is much deeper than p-value mis-use.
+- He argues a scientific hypothesis in a field such as psychology, economics, or medicine can correspond to any number of statistical hypotheses, and if the ASA is going to issue a statement warning about p-values, I think it necessary to emphasize that researcher degrees of freedom—the garden of forking paths—can and does occur even without people realizing what they are doing. 
+- A researcher will see the data and make a series of reasonable, theory-respecting choices, ending up with an apparently successful—that is, “statistically significant”—finding, without realizing that the nominal p-value obtained is meaningless.
+]
+.saltinline[
+- Ultimately the problem is not with p-values but with null hypothesis significance testing, that parody of **falsificationism** in which straw-man null hypothesis A is rejected and this is taken as evidence in favour of preferred alternative B. 
+- Whenever this sort of reasoning is being done, the problems discussed above will arise.
+- He concludes by saying there needs to be a paradigm shift towards a greater acceptance of uncertainty and embracing of variation.
+]
+---
+class: inverse 
+# And finally
+## What probability is more appealing?
+
+- Which of these conditional probabilities is more intuitively appealing?
+
+.glow[$$Pr(Data|Hypothesis) \text{ or }Pr(Hypothesis|Data)$$]
+
+--
+
+- The p-value is the probability of the compatability of the data with the null hypothesis, but we are usually more interested in the probability of the hypothesis given the data.
+
+- If you recall, Bayes theorem can be used to achieve this at the expense of some additional assumptions (Bayes priors)
+
+---
+class: inverse
+# Simulating the substitution effect &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/&gt;&lt;/svg&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;fill:red;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+.panelset[
+.panel[.panel-name[Set up]
+
+```r
+library(reticulate)
+use_condaenv("r-reticulate")
+```
+]
+.panel[.panel-name[Define test function in &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;]
+
+```python
+def getTestData(n_features=100,n_informative=25,n_redundant=25,n_samples=10000,random_state=0,sigmaStd=.0):
+    from sklearn.datasets import make_classification
+    np.random.seed(random_state)
+    X,y=make_classification(n_samples=n_samples,
+      n_features=n_features-n_redundant,
+      n_informative=n_informative,n_redundant=0,shuffle=False,
+      random_state=random_state)
+    cols=['Informative_'+ str(i) for i in range(n_informative)]
+    cols+=['Noise_'+ str(i) for i in range(n_features-n_informative-n_redundant)]
+    X,y=pd.DataFrame(X,columns=cols),pd.Series(y)
+    i=np.random.choice(range(n_informative),size=n_redundant)
+    for k,j in enumerate(i):
+        X["Redundant_"+str(k)]=X['Informative_'+str(j)]+np.random.normal(size=X.shape[0])*sigmaStd
+    return X,y   
+```
+]
+.panel[.panel-name[Run simulation]
+- The following sets up a binary random classification problem with 40 features
+- five are informative (prefixed `I_`), thirty are redundant (prefixed `R_`), and 5 are pure noise (prefixed `N_`)
+- Redundant features are those formed by adding Gaussian noise to a randomly chosen informative feature
+- **The lower the value of `SigmaStd` the greater the substitution effective.**
+- Finally the below fits a logistical classification regressions named `ols`
+
+
+```python
+import numpy as np
+import pandas as pd
+import statsmodels.discrete.discrete_model as sm
+X,y=getTestData(40,5,30,10000,sigmaStd=.1)
+ols=sm.Logit(y,X).fit()
+```
+
+```
+## Optimization terminated successfully.
+##          Current function value: 0.380271
+##          Iterations 7
+```
+
+```python
+pvalues=ols.pvalues
+```
+
+]
+.panel[.panel-name[Visualise the results]
+.pull-left-2[
+&lt;img src="index_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right-1[
+- In this example one informative feature and two redundant features are below the p-value&lt;0.05 threshold.
+- The case study at the end will demonstrate a number of ML feature importance methods that address the caveats of p-values
+]
+]
+]
+
+---
+class: middle
+# Responsible AI
+.heat[
+- AI now permeates most parts of our everyday lives
+- PwC estimate that AI could contribute [$15.7 trillion](https://www.pwc.com/gx/en/issues/data-and-analytics/artificial-intelligence/what-is-responsible-ai.html) to the global economy by 2030.
+- This would be mostly as a result of productivity gains and increased consumer demand driven by AI-enhanced products and services. 
+- With such great potential comes great risk
+- ['Right to Explanation` GDPR law for machine learning algorithms](https://ojs.aaai.org/index.php/aimagazine/article/view/2741)
+]
+---
+class: middle
+# Principles of Responsible AI
+- Due to the ubiquitous nature of AI in public and private sector corporations, many organisations have published guidelines to tackle issues related to potential AI threats to both the individual and society as a whole. 
+.blockquote[
+These principles can be summarised into 6 categories:
+1. Fairness
+2. Ethics
+3. Privacy
+4. Accountability
+5. Transparency
+6. Security and safety
+]
+---
+class: middle
+# *black-box-ness* critiques
+
+- The last few years has witness the rise of opaque decision systems such as Deep Neural Networks (DNNs)
+
+- The empirical success of Deep Learning (DL) models such as DNNs stems from a combination of efficient learning algorithms and their huge parametric space. 
+- The latter space comprises hundreds of layers and millions of parameters, which makes DNNs be considered as complex black-box models. 
+- The opposite of *black-box-ness* is transparency, i.e., the search for a direct understanding of the mechanism by which a model works.
+- Explanations supporting the output of a model are crucial, especially in finance.
+
+---
+class: middle
+# Can interpretability improve FML performance?
+
+.pull-left[
+- The [cognitive psychology of explanation](https://www.darpa.mil/program/explainable-artificial-intelligence) tells us humans are reticent to adopt techniques that are not directly interpretable, tractable, and trustworthy.
+- One reason is that explaining is about convincing an audience with logic-based formulations of (counter) arguments.
+- It is customary to think that by focusing solely on performance, the systems will be increasingly opaque. 
+- This is true in the sense that there is a trade-off between the performance of a model and its transparency. 
+- However, an improvement in the understanding of a system can lead to the correction of its deficiencies. 
+]
+.pull-right[
+- Adding interpretability as an additional design driver to FML models can improve its implementability for 3 reasons:
+
+1. .heatinline[Interpretability helps ensure impartiality in decision-making, i.e. to detect, and consequently, correct from bias in the training dataset.]
+
+2. .saltinline[Interpretability facilitates the provision of robustness by highlighting potential adversarial perturbations that could change the prediction.]
+
+3. .acidinline[Interpretability can act as an insurance that only meaningful variables infer the output, i.e., guaranteeing that an underlying truthful causality exists in the model reasoning.]
+]
+---
+class: middle
+# eXplainable AI (XAI)
+.acidinline[
+- eXplainable AI (XAI) proposes creating a suite of ML techniques that:
+1. produce more explainable models while maintaining a high level of learning performance (e.g., prediction accuracy), and 
+2. enable humans to understand, appropriately trust, and effectively manage the emerging generation of artificially intelligent partners. 
+- XAI also draws insights from the Social Sciences and considers the psychology of explanation.
+]
+
+---
+class: middle
+# Outbreak in XAI literature
+.pull-left[
+![](~/Dropbox/Teaching/FinancialMachineLearning/FML/slides/img/XAI_lit_evolve.jpg)
+]
+.pull-right[
+.saltinline[
+- Barredo Arrieta et. al, (2020) argue model explainability is among the most crucial aspects to be ensured within this methodological framework of responsible AI
+]
+]
+
+---
+class: middle
+## XAI: Who? and Why?
+![](~/Dropbox/Teaching/FinancialMachineLearning/FML/slides/img/XAItargets.jpg)
+
+---
+class: middle
+## Post-hoc explainability techniques for machine learning models
+.pull-left[
+![](~/Dropbox/Teaching/FinancialMachineLearning/FML/slides/img/post-hoc-ML-explainers.jpg)
+]
+.pull-right[
+- Post-hoc explainability techniques can be further differentiated into model-agnostic and model- specific techniques. 
+- The former being more general than the latter. 
+]
+---
+class: middle
+# Case study: What drives UK Firm Value Predictability?
+- This exposition is an excerpt from my current working paper:
+
+- .fancy[How deep is your learning? Machine learning stories from the *enchanted predictability forest* of UK firm value. co-authored with Fearghal Kearney, Robert Sketch (2020)]
+
+- In this paper we attempt to explain the predictability of ML learning models using a known set of firm-level characteristics.
+
+- These characteristics include, momentum, market value, operating profit, cash profit ,investments, dividend yield, book to market value
+
+
+
+---
+class: middle
+# XAI packages
+- With machine learning interpretability growing in importance, several R packages designed to provide this functionality. Two of the most popular are `DALEX` and `iml`.
+
+- The iml package is probably the most robust ML interpretability package available. 
+
+- It provides both global and local model-agnostic post-hoc explainability methods. 
+
+- Although the interaction functions are notably slow, the other functions are faster or comparable to existing packages we use or have tested. 
+
+---
+class: middle
+### Pros and Cons of `iml` package
+.pull-left[
+#### Advantages
+- ML model and package agnostic: can be used for any supervised ML model (many features are only relevant to regression and binary classification problems).
+- Variable importance: uses a permutation-based approach for variable importance, which is model agnostic, and accepts any loss function to assess importance.
+- Partial dependence plots: Fast PDP implementation and allows for ICE curves.
+- H-statistic: one of only a few implementations to allow for assessing interactions.
+- Local interpretation: provides both LIME and Shapley implementations.
+- Plots: built with ggplot2 which allows for easy customization
+]
+.pull-right[
+#### Disadvantages
+- Does not allow for easy comparisons across models like `DALEX`.
+- The H-statistic interaction functions do not scale well to wide data (may predictor variables).
+- Only provides permutation-based variable importance scores (which become slow as number of features increase).
+- LIME implementation has less flexibility and features than `lime`.
+- Replication requirements
+]
+
+---
+class: top 
+# Exploratory data analysis
+.panelset[
+.panel[.panel-name[Describe the data]
+- The data was sourced from S&amp;P Capital IQ and consists of all LSE and AIM listed stocks dating back to 1975
+- It  has over 1 million rows and can be considered a *Big Data* sample in academic terms.
+]
+.panel[.panel-name[Missing data analysis]
+&lt;img src="index_files/figure-html/missing_raw-1.png" style="display: block; margin: auto;" /&gt;
+- The raw data has a considerable amount of missing observations 
+]
+.panel[.panel-name[Correlation]
+.pull-left[
+
+```r
+funnel_returns_ggplot &lt;- dat %&gt;%
+  select(-Date,-Sector) %&gt;%
+  drop_na() %&gt;%
+    correlate(Return) %&gt;%
+    plot_correlation_funnel()
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+.acidinline[
+.small[
+The above funnel plot to visually the bivariate linear correlations between the outcome and the predictor variables. Dividend Yield (-0.08), Risk Free Rate ( -0.03) and Invest (-0.006)) are the top three correlated predictors, all negative related to stock returns by less than 0.10. 
+]
+]
+]
+]
+]
+---
+class:middle
+# Data preprocessing
+- Data and test ML models using raw data and lead to poor results and unstable inferences.
+
+- For example, the surrogate tree function uses `partykit::cpart`, which requires all predictors to be numeric or factors. 
+
+- Consequently, we need to coerce any character predictors to factors (or ordinal encode). 
+
+- In our study we factorise the character variable `Sector` so it can be included to discriminate predictions across industries. 
+
+.blockquote[
+Specifically we do the following cleaning steps:
+
+1. Keep only complete rows of observations which drops about two thirds of the raw data
+2. Winsorize the data: to stabilise outlying variables on a multivariate distribution we follows the Khan et al. (2007) which stabilises potential inference via a bootstrapped least angle regression framework.  
+]
+
+---
+class:middle
+## summarise preprocessed data
+.pull-left[
+
+```r
+plot_missing(df_w)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+
+```r
+df_w %&gt;%
+    correlate(Return) %&gt;%
+    plot_correlation_funnel()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+- The winsorising step in particular improves the level of linear correlations of the predictor variables to Return.
+
+]
+---
+class:middle
+## H_2O.ai and XAI
+
+&lt;iframe width="860" height="515" class="center" src="https://www.youtube.com/embed/jlS9HGNNROQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+class: middle
+## Set-Up
+
+```r
+h2o.shutdown()
+h2o.no_progress()
+h2o.init()
+dat.h2o &lt;- as.h2o(df_w)
+set.seed(12345)
+splitss &lt;- h2o.splitFrame(dat.h2o, ratios = c(.7, .15), destination_frames = c("train","valid","test"))
+names(splitss) &lt;- c("train","valid","test")
+```
+## variable names for repsonse &amp; features
+
+```r
+x &lt;- "Return"
+y &lt;- setdiff(names(df_w), y) 
+```
+
+---
+class: middle
+# Estimating machine learning models
+- We will explore how to visualize a few of the more common machine learning algorithms implemented with H_2O.ai. 
+- For brevity I train default models and **do not emphasize hyperparameter tuning**. 
+- The following produces a regularized regression, random forest, and gradient boosting machine models; all of which provide rmse ranging between 8.4-8.6 
+- Although these models have distinct mse scores, our objective is to understand how these models come to this conclusion in similar or different ways based on underlying logic and data structure.
+
+---
+class: top 
+# Estimating machine learning models
+.panelset[
+.panel[.panel-name[elastic net model]
+- This is a simple regularized regression model 
+
+```r
+glm &lt;- h2o.glm(
+  x = x, 
+  y = y, 
+  training_frame = splitss$train,
+  validation_frame = splitss$valid,
+  family = "gaussian",
+  seed = 123
+  )
+```
+]
+.panel[.panel-name[random forest model]
+- This is a tree-based ensemble model
+
+```r
+rf &lt;- h2o.randomForest(
+  x = x, 
+  y = y,
+  training_frame = splitss$train,
+  validation_frame = splitss$valid,
+  ntrees = 500,
+  stopping_metric = "mse",    
+  stopping_rounds = 10,         
+  stopping_tolerance = 0.005,
+  seed = 123
+  )
+```
+]
+.panel[.panel-name[gradient boosting machine model]
+- Another tree based regression model which produces ensembles in a different way
+
+```r
+gbm &lt;-  h2o.gbm(
+  x = x, 
+  y = y,
+  training_frame = splitss$train,
+  validation_frame = splitss$valid,
+  ntrees = 500,
+  stopping_metric = "deviance",    
+  stopping_rounds = 10,         
+  stopping_tolerance = 0.005,
+  seed = 1234
+  )
+```
+]
+.panel[.panel-name[eXtreme Gradient boosting machine model]
+
+
+```r
+xgbm &lt;-  h2o.xgboost(
+  x = x, 
+  y = y,
+  training_frame = splitss$train,
+  validation_frame = splitss$valid,
+  max_depth = 500,
+  stopping_metric = "mse",    
+  stopping_rounds = 10,         
+  stopping_tolerance = 0.005,
+  seed = 123
+  )
+```
+]
+]
+---
+class:middle
+## Deep learning models
+.panelset[
+.panel[.panel-name[Deep neural net machine]
+- Deep neural net machine learning models have been powerful prediction engines in finance. 
+- With great powers comes great responsibility, and building **useful** models requires meticulous tuning
+- We used a procedure emphasises parameter tuning by first using a random hyper-parameter search.  This is less exhaustive but more efficient than a full grid search.  
+- For models with less tuning a grid search may be more appropriate. 
+- Code to do this is available upon request
+]
+
+.panel[.panel-name[Random Hyper-Parameter Search]
+- Often, hyper-parameter search for more than 4 parameters can be done more efficiently with random parameter search than with grid search. 
+- Basically, chances are good to find one of many good models in less time than performing an exhaustive grid search. 
+- We simply build up to `max_models` models with parameters drawn randomly from user-specified distributions (here, uniform). 
+- For this example, we use the adaptive learning rate and focus on tuning the network architecture and the regularization parameters. 
+- We also let the grid search stop automatically once the performance at the top of the leader board doesn't change much anymore, i.e., once the search has converged.
+]
+]
+---
+class: middle
+## model performance
+.pull-left[
+
+```r
+tibble(model=c("glm","rf","gbm","xgbm","dnn"),
+       RMSE=c(h2o.rmse(glm, valid = TRUE),
+              h2o.rmse(rf, valid = TRUE),
+              h2o.rmse(gbm, valid = TRUE),
+              h2o.rmse(xgbm, valid = TRUE),
+              h2o.rmse(m_best, valid = TRUE))) %&gt;% arrange(RMSE)
+```
+
+```
+## # A tibble: 5 x 2
+##   model  RMSE
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 dnn    8.19
+## 2 rf     8.34
+## 3 gbm    8.47
+## 4 glm    8.56
+## 5 xgbm   8.81
+```
+]
+.pull-right[
+- One robust way of adjudicating among models is to assess there performance on a validation dataset.
+- Using RMSE (root mean squared error),  the deep neural net machine performs the best, which is not surprising given its relative predictive power.
+- Encouraging, this result is similar to the leading paper in this field, Gu et al., (2020)
+]
+---
+class:middle
+# iml procedures
+.pull-left[
+- In order to work with iml, we need to adapt our data a bit so that we have the following three components:
+1. Create a data frame with just the features (must be of class data.frame, cannot be an H2OFrame or other class).
+2. Create a vector with the actual responses (must be numeric - 0/1 for binary classification problems).
+3. iml has internal support for some machine learning packages (i.e. mlr, caret, randomForest). However, to use iml with several of the more popular packages being used today (i.e. h2o, ranger, xgboost) we need to create a custom function that will take a data set (again must be of class data.frame) and provide the predicted values as a vector.
+]
+.pull-right[
+- Once we have these three components we can create a predictor object. Similar to DALEX and lime, the predictor object holds the model, the data, and the class labels to be applied to downstream functions. A unique characteristic of the iml package is that it uses R6 classes, which is rather rare. To main differences between R6 classes and the normal S3 and S4 classes we typically work with are:
+- Methods belong to objects, not generics (we’ll see this in the next code chunk).
+- Objects are mutable: the usual copy-on-modify semantics do not apply.
+- These properties make R6 objects behave more like objects in programming languages such as Python. So to construct a new Predictor object, you call the `new()` method which belongs to the R6 Predictor object and you use `$` to access `new()`
+]
+
+---
+class: middle
+# Model-agnostic techniques explained!
+
+.pull-left-1[
+- Model-agnostic techniques for post-hoc explainability are designed to be plugged to any model with the intent of extracting some information from its prediction procedure.
+
+- model-agnostic techniques may rely on model simplification, feature relevance estimation and visualization techniques:
+]
+.pull-right-2[
+1. .heatinline[**Explanation by simplification**: They are arguably the broadest technique under the category of model agnostic post-hoc methods. Local explanations are also present within this category, since sometimes, simplified models are only representative of certain sections of a model. For example Local Interpretable Model-Agnostic Explanations (LIME).]
+
+2. .acidinline[**Feature relevance explanation**: techniques aim to describe the functioning of an opaque model by ranking or measuring the influence, relevance or importance each feature has in the prediction output by the model to be explained. For example SHAP (SHapley Additive exPlantations)]
+
+3. .saltinline[**Visual explanation** techniques are a vehicle to achieve model-agnostic explanations. For example PDP (Partial Dependence) ICE (Individual Conditional Expectation) and ALE (Accumulated Local Effects) plots.]
+]
+---
+class: middle
+## Feature relevance
+.pull-left[
+- We can measure how important each feature is for the predictions with `FeatureImp`. 
+- The feature importance measure works by calculating the increase of the model’s prediction error after permuting the feature. 
+- A feature is “important” if permuting its values increases the model error, because the model relied on the feature for the prediction. 
+- A feature is “unimportant” if permuting its values keeps the model error unchanged, because the model ignored the feature for the prediction. 
+]
+.pull-right[
+- This model agnostic approach is based on (Breiman, 2001; Fisher et al, 2018) and follows the given steps:
+.blockquote[
+- For any given loss function do
+1. compute loss function for original model
+2. for variable i in (1,...,p) do
+  - randomize values
+  - apply given ML model
+  - estimate loss function
+  - compute feature importance (permuted loss / original loss)
+   end
+3. Sort variables by descending feature importance   
+]
+]
+
+---
+class: top
+### Feature relevance
+
+.panelset[
+.panel[.panel-name[compute feature importance with specified loss metric]
+
+```r
+imp.glm &lt;- FeatureImp$new(predictor.glm, loss = "mse")
+imp.rf &lt;- FeatureImp$new(predictor.rf, loss = "mse")
+imp.gbm &lt;- FeatureImp$new(predictor.gbm, loss = "mse")
+imp.dnn &lt;- FeatureImp$new(predictor.dnn, loss = "mse")
+```
+plot output
+
+```r
+p1 &lt;- plot(imp.glm) + ggtitle("GLM")
+p2 &lt;- plot(imp.rf) + ggtitle("RF")
+p3 &lt;- plot(imp.gbm) + ggtitle("GBM")
+p4 &lt;- plot(imp.dnn) + ggtitle("DNN")
+gridExtra::grid.arrange(p1, p2, p3,p4, nrow = 2)
+ggsave("ml_stories.png")
+```
+]
+.panel[.panel-name[plot feature relevance]
+.pull-left-2[
+
+```r
+gridExtra::grid.arrange(p1, p2, p3,p4, nrow = 2)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[Computer-age inference] 
+- The regularised linear model and tree-based non-tuned models show dividend yield plays the prominent role in return predictions. 
+- The deep neural net model, optimised with two hidden layers, shows a similar importance score for dividend yield, but there are a five other balance sheet variables which are more important.  
+- Stock issues seems to be the most important.  
+- This different results provides shows when we change from a parametric to semi-parametric machine, there is some interesting hidden relationships in the predictors.
+]
+]
+
+---
+class: middle
+## Feature relevance explanations
+.pull-left-1[
+- Permutation-based approaches can become slow as your number of predictors grows. 
+- *To assess variable importance for all 3 models in this example takes 3 hours on a 52 core H2o cluster.* 
+ - Although this is slower, it is comparable to other permutation-based implementations (i.e. DALEX, ranger).
+
+- The following lists some advantages and disadvantages to `iml`’s feature relevance procedure.
+]
+.pull-right-2[
+.salt[Advantages:]
+
+- Model agnostic
+- Simple interpretation that’s comparable across models
+- Can apply any loss function (accepts custom loss functions as well)
+- Plot output uses ggplot2; we can add to or use our internal branding packages with it
+
+.heat[Disadvantages:]
+- Permutation-based methods are slow
+- Default plot contains all predictors; however, we can subset results data frame if desired 
+]
+
+---
+class: middle 
+## Visualisation explanation techniques
+.pull-left[
+### Partial dependence
+- The `Partial class in iml` implements partial dependence plots (PDPs) and individual conditional expectation (ICE) curves. 
+- The procedure follows the traditional methodology documented in Friedman (2001) and Goldstein et al. (2014) where the ICE curve for a certain feature illustrates the predicted value for each observation when we force each observation to take on the unique values of that feature. 
+- The PDP curve represents the average prediction across all observations.
+]
+.pull-right[
+.blockquote[
+For a selected predictor (x)
+1. Determine grid space of j evenly spaced values across distribution of x
+2: for value i in (1,...,j) of grid space do
+  -  set x to i for all observations
+  -  apply given ML model
+  -  estimate predicted value
+  -  if PDP: average predicted values across all observations
+ -  end
+]
+]
+
+---
+class: middle
+# PDPs
+.panelset[
+.panel[.panel-name[Case study example]
+- The following produces PDP lines (connects the averages of all observations for each response class) for the most important variable in the three tree-based models (DivYield) and the deep neural network model (Stock Issues). 
+
+```r
+glm.dy &lt;- FeatureEffect$new(predictor.glm, "DivYield",method='pdp') %&gt;% plot() + ggtitle("GLM")
+rf.dy &lt;- FeatureEffect$new(predictor.rf, "DivYield",method='pdp') %&gt;% plot() + ggtitle("RF") 
+gbm.dy &lt;- FeatureEffect$new(predictor.gbm, "DivYield",method='pdp') %&gt;% plot() + ggtitle("GBM")
+dnn.dy &lt;- FeatureEffect$new(predictor.dnn, "StockIss",method='pdp') %&gt;% plot() + ggtitle("GBM")
+```
+
+]
+.panel[.panel-name[Output]
+.pull-left-2[
+
+```r
+gridExtra::grid.arrange(glm.dy, rf.dy, gbm.dy,dnn.dy+ggtitle("DNN"),nrow = 2)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[Inference]
+- All three model show a overall monotonic decrease in the predicted returns as companies payout more dividend. 
+- [This is consistent with much of the academic literature in the field which suggest dividend yield has strong negative predictive power for excess returns](https://www0.gsb.columbia.edu/faculty/aang/papers/pred.pdf) 
+- In the tree-based models, the non-linear behaviour is clear.  
+- In particular they capture an unusual positive effect on predicted returns as companies begin to pay small amounts of dividend.
+- In the case of the DNN model, Stock issues has a parabolic relationship to predicted returns, more from positive to negative as the feature's value increases.
+]
+]
+
+---
+class: middle
+## Individual conditional expectation plot
+.pull-left[
+- Goldstein et al., (2014) presents ICE (Individual Conditional Expectation) plots as a tool for visualizing the model estimated by any supervised learning algorithm.
+- PDPs help visualise the average partial relationship between predicted response and one of more features.
+- In the presence of substantial interaction effects, this average curve and obfuscate complexity of the modelled relationship, providing inconsistent explanations. 
+- ICE plots refine PDPs by graphing the functional relationship between the predicted response and the feature for individual observations.
+- ICE plots highlight the variation in fitted values across and range of covariates, visualising where and to what extent heterogeneities might exist.
+]
+.pull-right[
+
+&lt;img src="index_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
+- Shows the ICE plot for Dividend Yield for predicted returns for the gradient boosted model.
+- In the range of 0.6 to 0.75 there is an unusual spike in behaviour, suggestive of some event shock which may require more investigation.
+]
+
+---
+class: middle
+# Pros and Cons
+The following lists some advantages and disadvantages to iml’s PDP and ICE procedures.
+.pull-left[
+### Advantages:
+- Provides PDPs &amp; ICE curves (unlike DALEX)
+- Allows you to center ICE curves
+- Computationally efficient
+- grid.size allows you to increase/reduce grid space of `\(x_i\)` values
+- Rug option illustrates distribution of all `\(x_i\)` values
+- Provides convenient plot outputs for categorical predictors
+]
+.pull-right[
+### Disadvantages:
+
+- Only provides heatmap plot of 2-way interaction plots
+- Does not allow for easy comparison across models like DALEX
+- Measuring interactions
+]
+
+---
+class:middle
+# Interactions and the H-statistic
+.pull-left[
+- A wonderful feature provided by `iml` is to measure how strongly features interact with each other. 
+- .content-box-green[An interaction effect occurs when the effect of one variable on the output depends on the value of another variable]
+- To measure interaction, `iml` uses the H-statistic proposed by Friedman and Popescu (2008). 
+- The H-statistic measures how much of the variation of the predicted outcome depends on the interaction of the features. 
+- There are two approaches to measure this. 
+- The first measures if a feature *x&lt;sub&gt;i&lt;/sub&gt;* interacts with any other feature. 
+
+]
+.pull-right[
+.small[
+.blockquote[ 
+- The algorithm performs the following steps:
+1. for variable i in (1,...,p) do
+  -  f(x) = estimate predicted values with original model
+  -  pd(x) = partial dependence of variable i
+  -  pd(!x) = partial dependence of all features excluding i
+  -  upper = sum(f(x) - pd(x) - pd(!x))
+  -  lower = variance(f(x))
+  -  rho = upper / lower
+   end
+2. Sort variables by descending `\(\rho\)` (interaction strength)
+]
+- The interaction strength ($\rho$) will be between 0 when there is no interaction at all and 1 if all of variation of the predicted outcome depends on a given interaction. 
+- All three models capture different interaction structures although some commonalities exist for different models (i.e. DivYield, lg1R, Mom). 
+- The interaction effects are stronger in the tree based models versus the GLM model, with the GBM model having the strongest interaction effect of 0.4.
+]
+]
+
+---
+class: middle
+### Overall interaction strength analysis
+.panelset[
+.panel[.panel-name[Code]
+- This code identifies variables have the largest H-statistics in each model
+
+```r
+interact.glm &lt;- Interaction$new(predictor.glm) %&gt;% plot() + ggtitle("GLM")
+interact.rf  &lt;- Interaction$new(predictor.rf) %&gt;% plot() + ggtitle("RF")
+interact.gbm &lt;- Interaction$new(predictor.gbm) %&gt;% plot() + ggtitle("GBM")
+interact.dnn &lt;- Interaction$new(predictor.dnn) %&gt;% plot() + ggtitle("dnn")
+```
+]
+.panel[.panel-name[Output]
+
+```r
+gridExtra::grid.arrange(interact.glm, interact.rf, interact.gbm,interact.dnn,nrow = 2)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[Inference]
+- The top right plot is a example of the importance of inferential skills when explaining FML output.
+- .acidinline[The Generalised Linear Model (GLM) by definition does not contain non-linear interaction effects, so this output is meaningless.]
+  - .heatinline[This is an important example of where machine learning models will always give you results and inference from algorithms requires human intervention (with domain knowledge of the algorithm) to explain their validity]
+- Invest is important in both tree-based models, while cash profits has the largest overall interactive influence in the DNN model.
+]
+]
+
+---
+class: middle
+# Pairwise interaction analysis
+
+- Considering `\(Invest\)` exhibits the strongest interaction signal, the next question is which other variable is this interaction the strongest. 
+- The second interaction approach measures the 2-way interaction strength of feature 
+- **Specifically, if you have features `\(x_i\)` and `\(x_j\)`, then you performs the following steps:**
+.blockquote[
+1. i = a selected variable of interest
+2. for remaining variables j in (1,...,p) do
+  - pd(ij) = interaction partial dependence of variables i and j
+  - pd(i) = partial dependence of variable i
+  - pd(j) = partial dependence of variable j
+  - upper = sum(pd(ij) - pd(i) - pd(j))
+  - lower = variance(pd(ij))
+  - `\(rho\)` = upper / lower
+  - end
+3. Sort interaction relationship by descending rho (interaction strength)  
+]
+- The H-Statistic is a useful ranking metric to explore interactions
+
+---
+class: middle 
+# Pairwise interaction analysis
+- The following measures the two-way interactions of all variables with the variable of interest `Invest`. 
+- The two tree-based models show Invest having the strongest interaction 
+  - `\(\rho=0.75\)` for random forest and `\(\rho=0.5\)` 
+- Identifying these interactions can be useful to understand which variables create co-dependencies in our model's behaviour. 
+- 
+
+#### Code to build interaction H-statistics and plot them
+
+```r
+interact.glm1 &lt;- Interaction$new(predictor.glm, feature = "MV") %&gt;% plot()
+interact.rf1  &lt;- Interaction$new(predictor.rf, feature = "Invest") %&gt;% plot()
+interact.gbm1 &lt;- Interaction$new(predictor.gbm, feature = "Invest") %&gt;% plot()
+interact.dnn1 &lt;- Interaction$new(predictor.dnn, feature = "CashProf") %&gt;% plot()
+```
+
+---
+class: middle
+# Pairwise interaction analysis
+.pull-left-2[
+
+```r
+gridExtra::grid.arrange(interact.glm1, interact.rf1, interact.gbm1, interact.dnn1,ncol = 2)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right-1[
+- The H-statistic is not widely implemented so having this feature in iml is beneficial. 
+- However, its important to note that as your feature set grows, the H-statistic becomes computationally slow.  
+- These H-statistic results suggest that the interactions between MV, Mom, Invest and DivYield have the strongest interaction effects.
+- These interaction require more investigation.
+- .content-box-yellow[Importantly, the validity of the H-Statistics is based on the assumption that the partial dependence calculations are statistically consistent.
+- Recent research has questioned this assumption in some instances. 
+]
+]
+
+---
+class: middle
+## .glowinline[A]ccumulate .glowinline[L]ocal .glowinline[E]ffects plots
+.pull-left-2[
+- Partial dependencies can produce erroneous results if the predictors are strongly correlated and are computationally expensive
+- Accumulated local effects plot (ALE) circumvent some of these shortcomings.
+- First, by design, ALE plots avoid the extrapolation problem that can render PD plots unreliable when the predictors are highly correlated. 
+- Second, ALE plots are substantially less computationally expensive than PD plots, requiring only `\(2^{|J|}\times n\)` evaluations of the supervised learning model `\(f(x)\)` to compute each `\(\hat{f}_{J,ALE}(x_J)\)`, compared with `\(K^{|J|}\times n\)` evaluations to compute each `\(\hat{f}_{J,PDP}(x_J)\)`.
+- The plot opposite is taken from Apley and Zhu (2020) and compares PD plots and ALE plots for a neural network model fitted over 50 Monte Carlo replicates. 
+- Clearly, the ALE plots are far superior to the PD plots in understanding the true effects of X1 and X2
+]
+.pull-right-1[
+![](~/Dropbox/Teaching/FinancialMachineLearning/FML/slides/img/appleyfig7.jpeg)
+]
+---
+## Inference is a cyclical process
+
+- .acid[INFERENCE: From the previous results we identify a number of variables in each model which have the largest influence in terms of their interactions with other variables.]
+- .salt[ANALYSIS: this inference can lead us into a deeper analysis to identify the two-way interactions with all other features of these these **highly influencing interactors**]
+- .heat[CYCLE: Thus the inference analysis cycle continues to a deeper level.]
+
+
+---
+class: middle
+### Visualising interaction effects using ALE plots
+
+.panelset[
+.panel[.panel-name[Code]
+- For each model we can investigate the largest interaction in terms of the above H-statistic.  
+- These interactions are visualised usung ALE plots, where the shading represents the variation in the interactive effect on predicted returns.
+- The shading is the 3rd dimension to the plot.
+- the package `ALEplot` provides an alternative contour plot visualisation, and allows for the estimation of second order effects excluding and including the main effect.
+
+
+```r
+gbm.dy.invest&lt;-FeatureEffect$new(predictor.gbm,method="ale", feature = c("Invest","DivYield")) %&gt;% plot()
+glm.mom.mv&lt;-FeatureEffect$new(predictor.glm,method="ale", feature = c("Mom","MV")) %&gt;% plot()
+rf.mv.invest&lt;-FeatureEffect$new(predictor.rf,method="ale", feature = c("MV","Invest")) %&gt;% plot()
+dnn.cp.sector&lt;- FeatureEffect$new(predictor.dnn,method="ale", feature = c("CashProf","Sector")) %&gt;% plot() 
+```
+]
+.panel[.panel-name[Size versus Momentum for GLM]
+.pull-left-2[
+
+```r
+glm.mom.mv + ggtitle('Interaction of Market Value and Momemtum Predictors')
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-28-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right-1[
+- In the regularised linear model,  the size of the interactions effects are infinitesimally small.
+]
+]
+.panel[.panel-name[Investment and DivYield for GBM]
+.pull-left-2[
+
+```r
+gbm.dy.invest
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right-1[
+For the gradient boosting machine, there appears to be a strong negative interactive effect on predicted returns when companies are experiencing a positive invest between 0.2-0.4 and a dividend yield between 0.5 and 1. In contrast a strong positive interactive effect appears with companies with negative invest figures and large dividend yields (&gt;1)
+]
+]
+.panel[.panel-name[Size and Investment in RF]
+.pull-left-2[
+
+```r
+rf.mv.invest
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right-1[
+For the random forest machine, smaller firms with a high invest rate (&gt;0.5) the interactive effect has a non-linear impact on predicted returns moving from above 0.5 to below 0 as MV increases. 
+]
+]
+.panel[.panel-name[Profit and Sector for DNN]
+.pull-left-2[
+
+```r
+dnn.cp.sector
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right-1[
+.small[
+- Finally, for the deep neural network machine there appears to be some strong sector differences when cash profits are highly negative or positive.  
+- For instance, the 63 utilities firms (21), show a large positive predictive effect on returns when they have highly negative cash profits.  
+- This effect lessens as they become more profitable. 
+- There is also a sectors which have a highly positive predictive effect when they have extremely positive and extremely negative cash profits but this effect dampens as they move from being unprofitable to profitable.  
+- These firms have IDs 1 to 10 (Aerospace and Defense, Automobiles and Parts, Basic Resources, Chemicals, Construction and Materials, Electronic and Electrical Equipment, Food and Beverage, General Industrials, Healthcare, Industrial Engineering)
+]
+]
+]
+]
+
+---
+class: middle
+# SHAP
+- One fruitful contribution to the feature **relevance explanations** path is that of Strunbelji &amp; Kononenko (2014) called SHAP
+- s**H**apley **A**dditive ex**P**lanations calculate an additive feature importance score for each particular prediction with a set of desirable statistical properties which other feature importance measures lack.
+- Specifically, local accuracy, missingness, and consistency.
+- SHAP explains individual predictions using a method from coalitional game theory (Lundberg &amp; Lee, 2016). 
+- They are proven to be mathematical robust and statistical consistent in most situations. 
+
+---
+class: inverse
+## Shapley values properties
+- SHapley Additive exPlanation (SHAP) values, unlike popular feature attribution measures, are a *statistical consistent* estimate.  
+- .heatinline[Inconsistency means that when a model is changed such that a feature **should have** a higher impact on the model's output, the explaining algorithm can actually lower the importance of that feature.  In other words it is fundamental wrong.]
+
+- Lundberg et al., (2019) shows that popular global feature attribution methods such as Gain, Split Count, Saabas permutation methods are in fact inconsistent. 
+
+- They further argue:
+
+.blockquote[Inconsistency strikes at the heart of what it means to be a good attribution method, because it prevents the meaningful comparison of attribution values across features. This is because inconsistency implies that a feature with a large attribution value might be less important than another feature with a smaller attribution]
+
+
+---
+class: inverse
+## Shapley values properties
+
+- SHAP values are theoretically optimal, but like other model agnostic feature attribution methods are computationally expensive.  
+- They explain the output of a function f as the sum of the effects of each feature being introduced into a conditional expectation.
+- For linear functions this is a trivial exercise.  
+- For non-linear functions the order in which features are introduced matters. 
+- SHAP values results from the averaging of all possible orderings.  
+- Proofs from game theory show this is the **only possible consistent approach**. 
+
+---
+class: middle
+# SHAP and Shapley values
+- Shapley values interpret a model’s prediction in terms of
+.blockquote[
+- attribution to the various features (sign and size)
+- features that are most important overall
+- dependence on the feature’s value
+- interactions between features
+- similarity (supervised clustering)
+]
+
+---
+class: middle
+# Theoretical contruction of Shapley values
+- Consider a supervised learning problem of with dataset `\(X_n, y\)`, a target variables with a set of N features.
+- Given an instance `\(x \in X\)`, a model `\(f\)` forecasts a target as `\(f(x)\)`
+- Shapley values answer the following:
+
+.content-box-yellow[Can we attribute the departure of a prediction `\(f(x)\)` from its average value `\(\bar{y}\)` in terms of the observed instance `\(x\)`?]
+
+- In a linear model this is a straightforward decomposition
+
+`$$f(x)-\bar{y}=\beta_1x^1+...+\beta_Nx^N$$`
+- Recall that linear models are transparency and intuitive as they are a weighted sum of individual causes/effects
+- We would like to do a similar *local* decomposition for an (nonlinear) ML model
+
+---
+class: middle
+## Shapley values and coalitional game theory
+.acid[
+- Shapley values answer this attribution problem through game theory
+- Features are treated as players in a game
+- The players form coalitions in order to achieve
+an outcome
+- We wish to find a “fair” attribution of each individual player’s contribution
+]
+---
+class: middle
+## Shapley values and coalitional game theory
+.blockquote[
+1. First, we consider the `\(2^N\)` possible coalitions (interactions) between the players (features), where some players (features) may not participate (remain at their average value), and some players (features) may participate (depart from their average value)
+2. Second, we use the coalitions (interactions) table to compute the marginal contribution of each player (feature) conditional to the other players. The marginal impact of changing `\(x^i\)` after changing `\(x^j\)` may differ from the marginal impact of changing `\(x^j\)` after changing
+`\(x^i\)`. Accordingly, we must account for all possible `\(N!\)` sequences of conditional effects
+3. Third, the Shapley value of a player (feature) is the average conditional marginal contribution of that player across all the possible `\(N!\)` ways of conditioning `\(f(.)\)`.
+]
+
+---
+class: inverse
+# Statistical Properties of Shapley Values
+- Shapley values `\((\{\phi_i\}_{i-1,...N})\)`provide the only fair attribution, that is attributions that follow the properties
+
+1. Efficiency: `\(f(x)-\bar{y}=\sum_{i=1}^N \phi\)`
+2. Symmetry: `\(\phi_i=\phi_j\)` that is `\(x^i\)` and `\(x^j\)` contribute equally to all possible coalitions
+3. Missingness: if `\(x^i\)` does not change `\(f(x)\)` regardless of the coalition, then `\(\phi_i=0\)`
+4. Additivity: A function with combined outputs has as Shapley values the sum of the constituent ones 
+5. Consistency
+
+---
+class: middle
+# SHAP algorithm
+- The idea behind Shapley values is to assess every combination of predictors to determine each predictors impact. 
+- Focusing on feature `\(x_j\)`, the approach will test the accuracy of every combination of features not including `\(x_j\)` and then test how adding `\(x_j\)` to each combination improves the accuracy.
+- Unfortunately, computing Shapley values is very computationally expensive. 
+- Consequently, iml implements an approximate Shapley estimation algorithm that follows the following steps:
+
+
+.blockquote[
+- ob = single observation of interest
+1. for variables j in (1,...,p) do
+  -  m = random sample from data set
+  -  t = `rbind(m, ob)`
+  -  f(all) = compute predictions for t
+  -  f(!j) = compute predictions for t with feature j values randomized
+  -  `diff = sum(f(all) - f(!j))`
+  - `phi = mean(diff)`
+  - end
+2. sort `\(\phi\)` in decreasing order
+]
+
+---
+class: middle
+# Shapley values computation
+- The Shapley value ($\phi$) represents the contribution of each respective variable towards the predicted valued compared to the average prediction for the data set. 
+- We use `Shapley$new` to create a new `Shapley` object. 
+- The time to compute is largely driven by the number of predictors but you can also control the sample size drawn (see sample.size argument) to help reduce compute time.
+
+
+```r
+X&lt;-as.data.frame(features)
+shapley.glm &lt;- Shapley$new(predictor.glm, x.interest = X[1,]) %&gt;% plot() + ggtitle("GLM")
+shapley.gbm &lt;- Shapley$new(predictor.gbm, x.interest = X[1,]) %&gt;% plot() + ggtitle("GBM")
+shapley.rf &lt;- Shapley$new(predictor.rf, x.interest = X[1,]) %&gt;% plot() + ggtitle("RF")
+shapley.dnn &lt;- Shapley$new(predictor.dnn, x.interest = X[1,]) %&gt;% plot() + ggtitle("DNN")
+```
+
+---
+class: middle
+# Case study: Shapley values
+.panelset[
+.panel[.panel-name[GBM]
+.pull-left-2[
+
+```r
+shapley.gbm
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[GLM]
+.pull-left-2[
+
+```r
+shapley.glm
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-34-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[RF]
+.pull-left-2[
+
+```r
+shapley.rf
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-35-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[DNN]
+.pull-left-2[
+
+```r
+shapley.dnn
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-36-1.png" style="display: block; margin: auto;" /&gt;
+]
+]
+.panel[.panel-name[Inference]
+.acid[
+The plots show impact of each predictor on the prediction of the first observation in the validation data set. The tree-based models shows a consistent positive experience for Invest and BM, while all models shows a clear negative impact of DivYield.
+]
+]
+]
+
+
+---
+class: middle
+# Shapley values
+- Shapley values are considered more robust than the results you will get from LIME.
+- Recall that Local Interpretable Model-Agnostic Explanations are a technique for explanation by simplification.
+- However, similar to the different ways you can compute variable importance, although you will see differences between the two methods often you will see common variables being identified as highly influential in both approaches. 
+- Consequently, we should use these approaches to help indicate influential variables but not to definitively label a variables as the most influential.
+
+---
+class: inverse
+# Summary
+
+.acid[.small[
+- In computer-age statistical inference, p-values are found lacking.
+- The new AI revolution is in the development of responsible AI tools, with XAI being a central theme for responsibility
+- We have introduced a number of post-hoc methods to explain the results of black-box FML models.
+- One exciting new field that we have not covered is *white-box*  techniques for deep neural networks which extract meaning similar to the use of linear regression models are using in finance.
+- For example see Dixon et al. (2020) Chapter 5 on Interpretability.
+]
+]
+---
+class:middle
+# References
+
+.small[
+
+[Barredo Arrieta, Alejandro, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador Garcia, et al. 2020. “Explainable Artificial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges toward Responsible AI.” An International Journal on Information Fusion 58 (June): 82–115.](https://www.sciencedirect.com/science/article/pii/S1566253519308103#bbib0385)
+
+[Goodman, Bryce, and Seth Flaxman. 2017. “European Union Regulations on Algorithmic Decision-Making and a ‘Right to Explanation.’” AI Magazine 38 (3): 50–57.](https://ojs.aaai.org/index.php/aimagazine/article/view/2741)
+
+[Jafar A Khan, Stefan Van Aelst &amp; Ruben H Zamar (2007) Robust Linear Model Selection Based on Least Angle Regression, Journal of the American Statistical Association, 102:480, 1289-1299,](https://www.tandfonline.com/doi/abs/10.1198/016214507000000950)
+
+[Gu, Shihao, Bryan Kelly, and Dacheng Xiu. 2020. “Empirical Asset Pricing via Machine Learning.” The Review of Financial Studies, Working Paper Series, , February.](https://doi.org/10.1093/rfs/hhaa009)
+
+[Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin. 2015. “Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation.” Journal of Computational and Graphical Statistics: A Joint Publication of American Statistical Association, Institute of Mathematical Statistics, Interface Foundation of North America 24 (1): 44–65.](http://dx.doi.org/10.1080/10618600.2014.907095)
+
+[Štrumbelj, Erik, and Igor Kononenko. 2014. “Explaining Prediction Models and Individual Predictions with Feature Contributions.” Knowledge and Information Systems 41 (3): 647–65.](https://link.springer.com/article/10.1007/s10115-013-0679-x)
+
+Harvey, Campbell R., Presidential Address: The Scientific Outlook in Financial Economics (July 17, 2017). Duke I&amp;E Research Paper No. 2017-05, Available at SSRN: https://ssrn.com/abstract=2893930 or http://dx.doi.org/10.2139/ssrn.2893930
+
+[Dimopoulos, Yannis, Paul Bourret, and Sovan Lek. 1995. “Use of Some Sensitivity Criteria for Choosing Networks with Good Generalization Ability.” Neural Processing Letters 2 (6): 1–4.](https://link.springer.com/article/10.1007/BF02309007)
+
+Interpretaability (Chapter 5) in Machine Learning in Finance : From Theory to Practice (2020) by Matthew F. Dixon,Igor Halperin,and Paul Bilokon [QUB link](https://ebookcentral-proquest-com.queens.ezp1.qub.ac.uk/lib/qub/reader.action?docID=6247297&amp;ppg=189)
+
+Molnar,  C.  (2019):  " Interpretable  Machine  Learning:  A  Guide  for  Making   Black-  Box  Models  Explainable  (Links to an external site.) ."  [QUB link](https://enco r e.qub.ac.uk/iii/encore/record/C__Rb2183044)
+
+[Apley, Daniel W., and Jingyu Zhu. 2020. “Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models.” Journal of the Royal Statistical Society. Series B, Statistical Methodology 82 (4): 1059–86.](http://dx.doi.org/10.1111/rssb.12377)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+(function(time) {
+  var d2 = function(number) {
+    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
+  },
+
+  time_format = function(total) {
+    var secs = Math.abs(total) / 1000;
+    var h = Math.floor(secs / 3600);
+    var m = Math.floor(secs % 3600 / 60);
+    var s = Math.round(secs % 60);
+    var res = d2(m) + ':' + d2(s);
+    if (h > 0) res = h + ':' + res;
+    return res;  // [hh:]mm:ss
+  },
+
+  slide_number_div = function(i) {
+    return document.getElementsByClassName('remark-slide-number').item(i);
+  },
+
+  current_page_number = function(i) {
+    return slide_number_div(i).firstChild.textContent;  // text "i / N"
+  };
+
+  var timer = document.createElement('span'); timer.id = 'slide-time-left';
+  var time_left = time, k = slideshow.getCurrentSlideIndex(),
+      last_page_number = current_page_number(k);
+
+  setInterval(function() {
+    time_left = time_left - 1000;
+    timer.innerHTML = ' ' + time_format(time_left);
+    if (time_left < 0) timer.style.color = 'red';
+  }, 1000);
+
+  slide_number_div(k).appendChild(timer);
+
+  slideshow.on('showSlide', function(slide) {
+    var i = slide.getSlideIndex(), n = current_page_number(i);
+    // reset timer when a new slide is shown and the page number is changed
+    if (last_page_number !== n) {
+      time_left = time; last_page_number = n;
+      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
+    }
+    slide_number_div(i).appendChild(timer);
+  });
+})(120000);
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
